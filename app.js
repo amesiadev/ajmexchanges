@@ -57,30 +57,87 @@ function calculate() {
     total.toFixed(2) + " Bs";
 }
 
-// --- Generar imagen de resultados ---
-async function generarImagen() {
-  const canvas = await html2canvas(resultsContainer, { backgroundColor: "#ffffff" });
-  return canvas.toDataURL("image/png");
+// Asegúrate que exista el contenedor de resultados en tu HTML
+const resultsContainer = document.getElementById("results");
+
+// ✅ Verifica que html2canvas esté cargado
+async function ensureHtml2Canvas() {
+  if (typeof html2canvas === "undefined") {
+    throw new Error("html2canvas no está cargado. Asegúrate de incluirlo en tu index.html");
+  }
 }
 
-// --- Compartir en WhatsApp ---
-async function compartirWhatsApp() {
-  const imagenDataUrl = await generarImagen();
-  const link = document.createElement("a");
-  link.href = imagenDataUrl;
-  link.download = "resultado.png";
-  link.click();
-
-  const mensaje = "Mira este cálculo de la calculadora 💰";
-  const url = encodeURIComponent(window.location.href);
-  window.open(`https://wa.me/?text=${mensaje}%20${url}`, "_blank");
+// ✅ Genera imagen PNG del contenedor de resultados
+async function generarImagenBlob() {
+  if (!resultsContainer) throw new Error("Contenedor de resultados no encontrado.");
+  await ensureHtml2Canvas();
+  const canvas = await html2canvas(resultsContainer, { backgroundColor: "#ffffff", scale: 2 });
+  return await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
 }
 
-// --- Compartir en Facebook ---
+// 📘 Compartir en Facebook
 async function compartirFacebook() {
-  const mensaje = "Mira este cálculo de la calculadora 💰";
-  const url = encodeURIComponent(window.location.href);
-  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${mensaje}`, "_blank");
+  try {
+    const blob = await generarImagenBlob();
+    const file = new File([blob], "resultado.png", { type: "image/png" });
+
+    // ✅ Compatibilidad con Web Share API
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: "AJM Exchanges",
+        text: "Mira mi cálculo en AJM Exchanges"
+      });
+      return;
+    }
+
+    // ❌ Fallback: descarga y abre diálogo FB
+    const urlObj = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = urlObj;
+    a.download = "resultado.png";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(urlObj), 5000);
+
+    const shareUrl = encodeURIComponent(window.location.href);
+    const quote = encodeURIComponent("Mira mi cálculo en AJM Exchanges");
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${quote}`, "_blank");
+  } catch (err) {
+    console.error("Error compartiendo en Facebook:", err);
+    alert("No se pudo compartir en Facebook. Descarga la imagen manualmente.");
+  }
+}
+
+// 💬 Compartir en WhatsApp
+async function compartirWhatsApp() {
+  try {
+    const blob = await generarImagenBlob();
+    const file = new File([blob], "resultado.png", { type: "image/png" });
+
+    // ✅ Web Share API
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: "Resultado AJM Exchanges",
+        text: "Te comparto mi cálculo de AJM Exchanges"
+      });
+      return;
+    }
+
+    // ❌ Fallback: descarga + abre wa.me
+    const urlObj = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = urlObj;
+    a.download = "resultado.png";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(urlObj), 5000);
+
+    const mensaje = encodeURIComponent("Te comparto mi cálculo desde AJM Exchanges. Descarga la imagen y compártela aquí:");
+    window.open(`https://wa.me/?text=${mensaje}%20${encodeURIComponent(window.location.href)}`, "_blank");
+  } catch (err) {
+    console.error("Error compartiendo por WhatsApp:", err);
+    alert("No se pudo compartir en WhatsApp. Descarga la imagen manualmente.");
+  }
 }
 
 document.addEventListener("DOMContentLoaded", getRates);
