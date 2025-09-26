@@ -8,7 +8,7 @@ async function getRates() {
     const data = await res.json();
     bcvRate = data.rates.VES;
     usdRate = data.rates.USD;
-    usdToCopRate = date.rates.COP;
+    usdToCopRate = data.rates.COP;
 
     document.getElementById("bcvRate").innerText =
       `Tasa BCV: ${bcvRate} Bs | 1 USD = ${usdToCopRate} COP`;
