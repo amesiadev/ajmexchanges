@@ -11,7 +11,7 @@ async function getRates() {
     usdToCopRate = data.rates.COP;
 
     document.getElementById("bcvRate").innerText =
-      `BCV: ${bcvRate} Bs | 1 USD = ${usdToCopRate} COP`;
+      `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP`;
   } catch (e) {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
@@ -56,5 +56,36 @@ function calculate() {
   document.getElementById("finalResult").innerText =
     total.toFixed(2) + " Bs";
 }
+
+// --- Generar imagen de resultados ---
+async function generarImagen() {
+  const canvas = await html2canvas(resultsContainer, { backgroundColor: "#ffffff" });
+  return canvas.toDataURL("image/png");
+}
+
+// --- Compartir en WhatsApp ---
+async function compartirWhatsApp() {
+  const imagenDataUrl = await generarImagen();
+  const link = document.createElement("a");
+  link.href = imagenDataUrl;
+  link.download = "resultado.png";
+  link.click();
+
+  const mensaje = "Mira este cálculo de la calculadora 💰";
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://wa.me/?text=${mensaje}%20${url}`, "_blank");
+}
+
+// --- Compartir en Facebook ---
+async function compartirFacebook() {
+  const mensaje = "Mira este cálculo de la calculadora 💰";
+  const url = encodeURIComponent(window.location.href);
+  window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${mensaje}`, "_blank");
+}
+
+// --- Eventos ---
+calculateBtn.addEventListener("click", calcular);
+shareWhatsAppBtn.addEventListener("click", compartirWhatsApp);
+shareFacebookBtn.addEventListener("click", compartirFacebook);
 
 document.addEventListener("DOMContentLoaded", getRates);
