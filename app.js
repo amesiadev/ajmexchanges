@@ -11,7 +11,7 @@ async function getRates() {
     usdToCopRate = data.rates.COP;
 
     document.getElementById("bcvRate").innerText =
-      `Tasa BCV: ${bcvRate} Bs | 1 USD = ${usdToCopRate} COP`;
+      `BCV: ${bcvRate} Bs | 1 USD = ${usdToCopRate} COP`;
   } catch (e) {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
