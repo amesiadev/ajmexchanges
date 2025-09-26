@@ -83,9 +83,4 @@ async function compartirFacebook() {
   window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${mensaje}`, "_blank");
 }
 
-// --- Eventos ---
-calculateBtn.addEventListener("click", calcular);
-shareWhatsAppBtn.addEventListener("click", compartirWhatsApp);
-shareFacebookBtn.addEventListener("click", compartirFacebook);
-
 document.addEventListener("DOMContentLoaded", getRates);
