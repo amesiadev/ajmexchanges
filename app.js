@@ -58,7 +58,7 @@ function calculate() {
 }
 
 // Asegúrate que exista el contenedor de resultados en tu HTML
-const resultsContainer = document.getElementById("results");
+const resultsContainer = document.getElementById("resultCard");
 
 // ✅ Verifica que html2canvas esté cargado
 async function ensureHtml2Canvas() {
