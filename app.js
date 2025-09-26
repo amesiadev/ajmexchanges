@@ -4,13 +4,11 @@ let usdToCopRate = null;
 // Obtener tasas
 async function getRates() {
   try {
-    const res = await fetch("https://pydolarve.org/api/v1/dollar");
+    const res = await fetch("https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES"");
     const data = await res.json();
-    bcvRate = data.monitors.bcv.price;
-
-    const res2 = await fetch("https://open.er-api.com/v6/latest/USD");
-    const data2 = await res2.json();
-    usdToCopRate = data2.rates.COP;
+    bcvRate = data.rates.VES;
+    usdRate = data.rates.USD;
+    usdToCopRate = date.rates.COP*usdRate;
 
     document.getElementById("bcvRate").innerText =
       `Tasa BCV: ${bcvRate} Bs | 1 USD = ${usdToCopRate} COP`;
