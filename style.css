@@ -149,3 +149,37 @@ h1 {
     font-size: 1.6rem;
   }
 }
+.share-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-share {
+  border: none;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+}
+
+.btn-share:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Estilo específico para Facebook */
+.btn-share.facebook {
+  background: #1877f2;
+}
+
+/* Estilo específico para WhatsApp */
+.btn-share.whatsapp {
+  background: #25d366;
+}
+
