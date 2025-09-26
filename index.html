@@ -11,15 +11,16 @@
   <div class="container">
     <h1>Calculadora AJMEXCHANGES</h1>
     <p id="bcvRate">Cargando tasas...</p>
+    <div class="card">
+    <h2>Conversor</h2>
+    <input type="number" id="monto" placeholder="Ingrese monto">
+    <select id="moneda">
+      <option value="USD">Dólares (USD)</option>
+      <option value="COP">Pesos (COP)</option>
+    </select>
+  <button id="calculate">Calcular</button>
+  </div>
 
-    <div class="calculator">
-      <input type="number" id="amountInput" placeholder="Ingrese monto">
-      <select id="currencySelect">
-        <option value="USD">USD ($)</option>
-        <option value="COP">COP (₱)</option>
-      </select>
-      <button onclick="calculate()">Calcular</button>
-    </div>
 
     <div class="result-card" id="resultCard">
       <img src="logo.png" alt="Logo" class="logo">
