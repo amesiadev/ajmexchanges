@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Bs</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Calculadora Bs</h1>
+    <p id="bcvRate">Cargando tasas...</p>
+
+    <div class="calculator">
+      <input type="number" id="amountInput" placeholder="Ingrese monto">
+      <select id="currencySelect">
+        <option value="USD">USD ($)</option>
+        <option value="COP">COP (₱)</option>
+      </select>
+      <button onclick="calculate()">Calcular</button>
+    </div>
+
+    <div class="result-card" id="resultCard">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h2>Resultado</h2>
+      <p id="enteredAmount">Monto ingresado: 0</p>
+      <p id="usdEquivalent"></p>
+      <p id="baseValue">Valor base: 0 Bs</p>
+      <p id="bonusInfo">Bono: 0 Bs</p>
+      <span id="finalResult">0 Bs</span>
+    </div>
+
+    <div class="share-buttons">
+      <button onclick="shareAsImage('facebook')">📘 Compartir en Facebook</button>
+      <button onclick="shareAsImage('whatsapp')">💬 Compartir en WhatsApp</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
