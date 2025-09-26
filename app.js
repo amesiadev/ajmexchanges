@@ -136,5 +136,5 @@ async function compartirWhatsApp() {
     alert("No se pudo compartir en WhatsApp. Descarga la imagen manualmente.");
   }
 }
-
+document.getElementById("calculate").addEventListener("click", calcular);
 document.addEventListener("DOMContentLoaded", getRates);
