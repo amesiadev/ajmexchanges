@@ -37,7 +37,7 @@ function calculate() {
   const total = baseValue + bono;
 
   // Mostrar desglose
-  document.getElementById("enteredAmount").innerText =
+  document.getElementById("monto").innerText =
     `Monto ingresado: ${amount.toFixed(2)} ${currency}`;
 
   if (currency === "COP") {
