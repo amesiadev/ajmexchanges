@@ -19,7 +19,7 @@ async function getRates() {
 }
 
 function calculate() {
-  const amount = parseFloat(document.getElementById("amountInput").value);
+  const amount = parseFloat(document.getElementById("monto").value);
   const currency = document.getElementById("currencySelect").value;
   if (isNaN(amount) || !bcvRate) return;
 
