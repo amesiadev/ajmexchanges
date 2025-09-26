@@ -37,7 +37,7 @@ function calculate() {
   const total = baseValue + bono;
 
   // Mostrar desglose
-  document.getElementById("monto").innerText =
+  document.getElementById("enteredAmount").innerText =
     `Monto ingresado: ${amount.toFixed(2)} ${currency}`;
 
   if (currency === "COP") {
@@ -47,14 +47,11 @@ function calculate() {
     document.getElementById("usdEquivalent").innerText = "";
   }
 
-  document.getElementById("baseValue").innerText =
-    `Valor base: ${baseValue.toFixed(2)} Bs`;
+  document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
 
-  document.getElementById("bonusInfo").innerText =
-    `Bono: ${bono.toFixed(2)} Bs`;
+  document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
 
-  document.getElementById("finalResult").innerText =
-    total.toFixed(2) + " Bs";
+  document.getElementById("finalResult").innerText = total.toFixed(2) + " Bs";
 }
 
 // Asegúrate que exista el contenedor de resultados en tu HTML
