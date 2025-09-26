@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#bcvRate {
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #007bff;
+}
+
+.calculator {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.calculator input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.calculator button {
+  padding: 10px 20px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.result-card .logo {
+  max-width: 80px;
+  margin-bottom: 10px;
+}
+
+.result-card h2 {
+  font-size: 1.8rem;
+  margin: 10px 0;
+}
+
+#finalResult {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #28a745;
+}
+
+#bonusInfo {
+  font-size: 1rem;
+  color: #555;
+}
+
+.share-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.share-buttons button {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
