@@ -316,3 +316,14 @@ h1::after {
     width: 60%;
   }
 }
+/* Logo arriba, centrado */
+.logo-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo {
+  max-width: 180px;
+  height: auto;
+}
+
