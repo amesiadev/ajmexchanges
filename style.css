@@ -241,3 +241,35 @@ h1 {
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
+/* Encabezado fijo */
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 2px solid #e0e0e0;
+  text-align: center;
+  padding: 10px 0;
+  z-index: 1000; /* por encima de todo */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajuste para el contenido (para que no se esconda debajo del header) */
+body {
+  padding-top: 80px; /* espacio equivalente al header */
+}
+
+/* Logo */
+.app-header .logo {
+  max-width: 150px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-header .logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
