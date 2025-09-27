@@ -257,7 +257,7 @@ h1 {
 
 /* Ajuste para el contenido (para que no se esconda debajo del header) */
 body {
-  padding-top: 80px; /* espacio equivalente al header */
+  padding-top: 65px; /* espacio equivalente al header */
 }
 
 /* Logo */
