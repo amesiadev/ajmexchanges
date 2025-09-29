@@ -326,4 +326,36 @@ h1::after {
   max-width: 180px;
   height: auto;
 }
+.banner {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 900px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
+.banner p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.banner-icons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.banner-icons img {
+  height: 40px;
+  width: auto;
+  transition: transform 0.2s;
+}
+
+.banner-icons img:hover {
+  transform: scale(1.1);
+}
