@@ -139,7 +139,7 @@ async function compartirWhatsApp() {
   window.addEventListener("load", function() {
     const loader = document.getElementById("loader");
     loader.style.opacity = "0";
-    setTimeout(() => loader.style.display = "none", 500); // desaparece suave
+    setTimeout(() => loader.style.display = "none", 1500); // desaparece suave
   });
 
 document.addEventListener("DOMContentLoaded", getRates);
