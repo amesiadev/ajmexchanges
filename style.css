@@ -366,7 +366,7 @@ h1::after {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #ffffff; /* puedes usar tu azul o negro */
+  background-color: #007BFF; /* Azul AjmexChanges */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -374,13 +374,14 @@ h1::after {
 }
 
 .loader-logo {
-  width: 150px;   /* ajusta el tamaño de tu logo */
+  width: 80px;   /* tamaño pequeño similar al de la web */
   height: auto;
   animation: fadeIn 1.2s ease-in-out infinite alternate;
 }
 
 /* Animación suave */
 @keyframes fadeIn {
-  from { opacity: 0.4; transform: scale(0.95); }
+  from { opacity: 0.6; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1.05); }
 }
+
