@@ -385,3 +385,37 @@ h1::after {
   to   { opacity: 1; transform: scale(1.05); }
 }
 
+/* Estilo general de botones flotantes */
+.btn-whatsapp,
+.btn-telegram {
+  position: fixed;
+  right: 20px;
+  z-index: 999;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.btn-whatsapp img,
+.btn-telegram img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* Posiciones específicas */
+.btn-whatsapp {
+  bottom: 20px; /* abajo a la derecha */
+}
+
+.btn-telegram {
+  bottom: 85px; /* encima del WhatsApp */
+}
+
+/* Efecto hover */
+.btn-whatsapp:hover,
+.btn-telegram:hover {
+  transform: scale(1.1);
+    }
