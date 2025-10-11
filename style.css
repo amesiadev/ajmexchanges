@@ -489,37 +489,36 @@ h1::after {
     height: 45px;
   }
 }
-
-.trust-section {
+.trust-section.mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #0a1a3f, #1a3a8a);
   color: #fff;
-  padding: 1.5rem;
-  border-radius: 16px;
-  margin: 2rem 1rem;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  transform: translateY(20px);
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  margin: 1.2rem auto;
+  width: 90%;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
   animation: fadeInUp 1s ease forwards;
+  gap: 0.6rem;
 }
 
-.trust-section h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.trust-section.mini .trust-icon {
+  font-size: 1.2rem;
+  animation: pulse 2.5s infinite;
 }
 
-.trust-section p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  margin-bottom: 0.8rem;
+.trust-section.mini .trust-text p {
+  margin: 0;
+  line-height: 1.4;
 }
 
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -527,18 +526,22 @@ h1::after {
   }
 }
 
-/* 💡 Versión compacta para pantallas pequeñas */
-@media (max-width: 600px) {
-  .trust-section {
-    margin: 1.2rem 0.8rem;
-    padding: 1rem;
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
   }
-
-  .trust-section h3 {
-    font-size: 1.1rem;
-  }
-
-  .trust-section p {
-    font-size: 0.9rem;
+  50% {
+    transform: scale(1.2);
   }
 }
+
+@media (max-width: 600px) {
+  .trust-section.mini {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+  }
+  .trust-section.mini .trust-icon {
+    font-size: 1.1rem;
+  }
+}
+
