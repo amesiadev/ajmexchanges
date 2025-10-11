@@ -54,7 +54,7 @@ function calculate() {
 
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
 
-  document.getElementById("finalResult").innerText = total.toFixed(2) + " Bs";
+  document.getElementById("finalResult").innerText =`Recibes: ${total.toFixed(2)} Bs`;
 }
 
 // Asegúrate que exista el contenedor de resultados en tu HTML
