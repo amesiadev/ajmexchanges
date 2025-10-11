@@ -489,3 +489,56 @@ h1::after {
     height: 45px;
   }
 }
+
+.trust-section {
+  background: linear-gradient(135deg, #0a1a3f, #1a3a8a);
+  color: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  margin: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+
+.trust-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.trust-section p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 💡 Versión compacta para pantallas pequeñas */
+@media (max-width: 600px) {
+  .trust-section {
+    margin: 1.2rem 0.8rem;
+    padding: 1rem;
+  }
+
+  .trust-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .trust-section p {
+    font-size: 0.9rem;
+  }
+}
