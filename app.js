@@ -34,7 +34,7 @@ function calculate() {
 
   // Calculos
   const baseValue = usdValue * bcvRate;
-  const faltaPorDolar = 235 - bcvRate;
+  const faltaPorDolar = 260 - bcvRate;
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
 
