@@ -419,3 +419,31 @@ h1::after {
 .btn-telegram:hover {
   transform: scale(1.1);
     }
+.trust-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 30px auto;
+  padding: 15px 0;
+  background: #f9fbff;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  max-width: 95%;
+}
+
+.trust-card {
+  text-align: center;
+  flex: 1;
+}
+
+.trust-card img {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 8px;
+}
+
+.trust-card p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #0e3fa9; /* Azul AJMEXCHANGES */
+}
