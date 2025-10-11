@@ -447,3 +447,58 @@ h1::after {
   font-weight: 600;
   color: #0e3fa9; /* Azul AJMEXCHANGES */
 }
+.partners-carousel {
+  text-align: center;
+  padding: 20px 0;
+  background: #ffffff;
+  border-radius: 16px;
+  margin: 30px auto;
+  max-width: 95%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.partners-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #003366; /* azul corporativo AJMExchange */
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  scrollbar-width: thin;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #0044cc;
+  border-radius: 8px;
+}
+
+.carousel-item {
+  flex: 0 0 auto;
+  min-width: 90px;
+  transition: transform 0.3s ease;
+}
+
+.carousel-item:hover {
+  transform: scale(1.1);
+}
+
+.carousel-item img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #0044cc, #007bff);
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
