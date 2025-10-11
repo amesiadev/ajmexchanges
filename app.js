@@ -145,21 +145,9 @@ async function compartirWhatsApp() {
     setTimeout(() => loader.style.display = "none", 1500); // desaparece suave
   });
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const track = document.querySelector('.carousel-track');
-    let scrollAmount = 0;
-
-    function autoScroll() {
-      if (!track) return;
-      scrollAmount += 1.5;
-      if (scrollAmount >= track.scrollWidth - track.clientWidth) {
-        scrollAmount = 0;
-      }
-      track.scrollLeft = scrollAmount;
-      requestAnimationFrame(autoScroll);
-    }
-
-    autoScroll();
-  });
+// Duplicar contenido automáticamente si quieres un bucle infinito perfecto
+const track = document.querySelector('.carousel-track');
+const clone = track.innerHTML;
+track.innerHTML += clone;
 
 document.addEventListener("DOMContentLoaded", getRates);
