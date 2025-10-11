@@ -24,8 +24,10 @@ function calculate() {
   if (isNaN(amount) || !bcvRate) return;
 
   let usdValue;
+  let copValue;
   if (currency === "USD") {
     usdValue = amount;
+    copValue = amount * usdToCopRate;
   } else if (currency === "COP") {
     usdValue = amount / usdToCopRate;
   }
@@ -44,7 +46,8 @@ function calculate() {
     document.getElementById("usdEquivalent").innerText =
       `Equivalente: ${usdValue.toFixed(2)} USD`;
   } else {
-    document.getElementById("usdEquivalent").innerText = "";
+    document.getElementById("usdEquivalent").innerText = 
+      `Equivalente: ${copValue.toFixed(2)} COP`;
   }
 
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
