@@ -170,7 +170,7 @@ track.innerHTML += clone;
   const tasaDisplay = document.getElementById("tasa-actual");
 
   // Base data
-  const nombres = ["Carlos M.","Ana P.","Luis G.","María J.","Pedro R.","Daniela T.","Andrés L.","Rosa C.","Miguel A.","Laura S."];
+  const nombres = ["Carlos M.","Ana P.","Luis G.","María J.","Pedro R.","Daniela H.","Andrés L.","Rosa C.","Miguel A.","Laura S.","Pedro P.","Andrea S.","Mariana P.","Bruno C."];
   const operaciones = [
     { tipo: "USD → Bs", icon: "🇺🇸 → 🇻🇪" },
     { tipo: "COP → Bs", icon: "🇨🇴 → 🇻🇪" },
@@ -217,8 +217,8 @@ track.innerHTML += clone;
     const op = operaciones[rand(0,operaciones.length-1)];
     const monto = rand(50,5000);
     let resultado = "";
-    if (op.tipo === "USD → Bs") resultado = (monto * tasa).toLocaleString("es-VE") + " Bs";
-    else if (op.tipo === "COP → Bs") resultado = ((monto/usdToCopRate) * tasa).toLocaleString("es-VE") + " Bs";
+    if (op.tipo === "USD → Bs") resultado = (monto * tasa).toFixed(2) + " Bs";
+    else if (op.tipo === "COP → Bs") resultado = ((monto/usdToCopRate) * tasa).toFixed(2) + " Bs";
     else resultado = "$" + (monto / tasa).toFixed(2);
 
     totalOperaciones++;
@@ -294,7 +294,7 @@ track.innerHTML += clone;
   sincronizarTasa();
   actualizar();
   // Actualiza cada 10s
-  setInterval(actualizar, 10000);
+  setInterval(actualizar, 20000);
 
   // Reinicio diario: por si la página queda abierta pasada la medianoche,
   // comprobamos cada 60s si la fecha cambió y reiniciamos contador si es necesario.
@@ -309,7 +309,7 @@ track.innerHTML += clone;
       sincronizarTasa();
       actualizar();
     }
-  }, 60000);
+  }, 90000);
 
 })();
 
