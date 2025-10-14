@@ -590,7 +590,7 @@ h1::after {
 /* === AJM Exchanges — Widget flotante (tabla de operaciones) === */
 .widget-transacciones {
   position: fixed;
-  bottom: 100px;
+  bottom: 150px;
   right: 22px;
   z-index: 9999;
   font-family: "Poppins", sans-serif;
