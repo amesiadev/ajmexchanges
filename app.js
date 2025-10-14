@@ -149,64 +149,168 @@ async function compartirWhatsApp() {
 const track = document.querySelector('.carousel-track');
 const clone = track.innerHTML;
 track.innerHTML += clone;
-// === Simulador de transacciones AJM Exchanges ===
 
-const names = [
-  "Carlos M.", "Ana P.", "Luis G.", "María J.", "Pedro R.", "Daniela T.",
-  "Andrés L.", "Rosa C.", "Miguel A.", "Laura S."
-];
+/* ============================
+  AJM Exchanges — Simulador profesional (tabla)
+  - Sincroniza con #tasa-valor si existe
+  - Guarda contador diario en localStorage
+  - Reinicia a medianoche automáticamente (por fecha guardada)
+  - Actualiza cada 10s, entre 2-5 nuevas operaciones
+  ============================ */
 
-const operations = [
-  { tipo: "USD → Bs", icon: "🇺🇸 → 🇻🇪" },
-  { tipo: "COP → Bs", icon: "🇨🇴 → 🇻🇪" },
-  { tipo: "Bs → USD", icon: "🇻🇪 → 🇺🇸" }
-];
+(() => {
+  // DOM refs
+  const btnWidget = document.getElementById("toggle-widget");
+  const panel = document.getElementById("panel-transacciones");
+  const list = document.getElementById("transactions-list");
+  const contador = document.getElementById("contador-transacciones");
+  const barra = document.getElementById("progreso");
+  const notificacion = document.getElementById("notificacion-nuevas");
+  const tasaDisplay = document.getElementById("tasa-actual");
 
-const list = document.getElementById("transactions-list");
-const tasa = 260; // Tasa actual Bs/USD
-const tasaCOP = tasa / 110; // Aproximado: 1 USD = 1100 COP
+  // Base data
+  const nombres = ["Carlos M.","Ana P.","Luis G.","María J.","Pedro R.","Daniela T.","Andrés L.","Rosa C.","Miguel A.","Laura S."];
+  const operaciones = [
+    { tipo: "USD → Bs", icon: "🇺🇸 → 🇻🇪" },
+    { tipo: "COP → Bs", icon: "🇨🇴 → 🇻🇪" },
+    { tipo: "Bs → USD", icon: "🇻🇪 → 🇺🇸" }
+  ];
 
-function randomAmount(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+  // Config
+  let tasa = 260;
+  let tasaCOP = tasa / 110;
+  const metaDiaria = 250;
+  let totalOperaciones = 0;
+  let porcentajePrevio = 0;
 
-function randomTime() {
-  const mins = Math.floor(Math.random() * 10) + 1;
-  return `hace ${mins} min`;
-}
+  // Helpers
+  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+  const nowKey = () => new Date().toISOString().slice(0,10);
 
-function generateTransaction() {
-  const name = names[Math.floor(Math.random() * names.length)];
-  const { tipo, icon } = operations[Math.floor(Math.random() * operations.length)];
-  let amount = randomAmount(50, 5000);
-  let result;
+  // LocalStorage: cargar/guardar contador por fecha
+  function cargarContador() {
+    const data = JSON.parse(localStorage.getItem("contadorAJM")) || {};
+    if (data.fecha === nowKey()) totalOperaciones = data.total || 0;
+    else { totalOperaciones = 0; localStorage.setItem("contadorAJM", JSON.stringify({ fecha: nowKey(), total: 0 })); }
+  }
+  function guardarContador() { localStorage.setItem("contadorAJM", JSON.stringify({ fecha: nowKey(), total: totalOperaciones })); }
 
-  if (tipo === "USD → Bs") {
-    result = (amount * tasa).toLocaleString("es-VE") + " Bs";
-  } else if (tipo === "COP → Bs") {
-    result = (amount * tasaCOP).toLocaleString("es-VE") + " Bs";
-  } else {
-    result = "$" + (amount / tasa).toFixed(2);
+  // Sincronizar tasa desde tu página (elemento #tasa-valor)
+  function sincronizarTasa() {
+    const elementoTasa = document.getElementById("tasa-valor");
+    if (elementoTasa) {
+      const valor = parseFloat(elementoTasa.textContent.replace(/[^0-9.]/g,""));
+      if (!isNaN(valor) && valor > 0) {
+        tasa = valor;
+        tasaCOP = tasa / 110;
+        tasaDisplay.textContent = `Tasa actual: ${tasa} Bs/USD`;
+      }
+    } else {
+      // mantiene la tasa por defecto y muestra
+      tasaDisplay.textContent = `Tasa actual: ${tasa} Bs/USD`;
+    }
   }
 
-  return `
-    <li>
-      💱 <strong>${name}</strong> ${icon}<br>
-      Cambió <strong>${amount.toLocaleString()} ${tipo.split(" ")[0]}</strong> → 
-      <strong>${result}</strong><br>
-      <small>🕒 ${randomTime()}</small>
-    </li>`;
-}
+  // Generar una fila (objeto) y render como HTML fila (.fila)
+  function generarOperacion() {
+    const nombre = nombres[rand(0,nombres.length-1)];
+    const op = operaciones[rand(0,operaciones.length-1)];
+    const monto = rand(50,5000);
+    let resultado = "";
+    if (op.tipo === "USD → Bs") resultado = (monto * tasa).toLocaleString("es-VE") + " Bs";
+    else if (op.tipo === "COP → Bs") resultado = (monto * tasaCOP).toLocaleString("es-VE") + " Bs";
+    else resultado = "$" + (monto / tasa).toFixed(2);
 
-function updateTransactions() {
-  const transactions = [];
-  for (let i = 0; i < 6; i++) {
-    transactions.push(generateTransaction());
+    totalOperaciones++;
+    guardarContador();
+
+    return {
+      cliente: nombre,
+      operacion: `${monto.toLocaleString()} ${op.tipo.split(" ")[0]} ${op.icon}`,
+      resultado,
+      tiempo: `hace ${rand(1,10)} min`
+    };
   }
-  list.innerHTML = transactions.join("");
-}
 
-updateTransactions();
-setInterval(updateTransactions, 10000);
+  // Mostrar notificación +N
+  function mostrarNotificacion(n) {
+    notificacion.textContent = `+${n} nuevas operaciones`;
+    notificacion.classList.add("visible");
+    setTimeout(()=> notificacion.classList.remove("visible"), 2500);
+  }
+
+  // Render tabla: recibe array de objetos (las más recientes)
+  function renderTabla(items) {
+    // build HTML filas
+    const html = items.map(it => {
+      return `<div class="fila" role="listitem">
+        <div><strong>${it.cliente}</strong></div>
+        <div>${it.operacion}</div>
+        <div>${it.resultado}</div>
+        <div><small>${it.tiempo}</small></div>
+      </div>`;
+    }).join("");
+    list.innerHTML = html;
+  }
+
+  // Actualización completa (loader)
+  function actualizar() {
+    sincronizarTasa();
+
+    const nuevas = rand(2,5);
+    const items = [];
+    for (let i=0;i<nuevas;i++) items.push(generarOperacion());
+
+    // Render (mostramos las N más recientes generadas)
+    renderTabla(items);
+
+    // Contador y progreso
+    const porcentaje = Math.min((totalOperaciones / metaDiaria) * 100, 100);
+    contador.textContent = `🔸 ${totalOperaciones.toLocaleString()} operaciones completadas hoy (${porcentaje.toFixed(0)}% de la meta)`;
+
+    // Pulso sólo si aumentó visualmente
+    if (porcentaje > porcentajePrevio) {
+      barra.classList.add("pulso");
+      setTimeout(()=> barra.classList.remove("pulso"), 1000);
+    }
+    barra.style.width = porcentaje + "%";
+    barra.setAttribute("aria-valuenow", Math.round(porcentaje));
+    porcentajePrevio = porcentaje;
+
+    mostrarNotificacion(nuevas);
+  }
+
+  // Mostrar/ocultar panel
+  btnWidget.addEventListener("click", () => {
+    const expanded = btnWidget.getAttribute("aria-expanded") === "true";
+    btnWidget.setAttribute("aria-expanded", String(!expanded));
+    panel.classList.toggle("oculto");
+    // Si abrimos, hacemos una actualización inmediata
+    if (!panel.classList.contains("oculto")) actualizar();
+  });
+
+  // Inicialización
+  cargarContador();
+  sincronizarTasa();
+  actualizar();
+  // Actualiza cada 10s
+  setInterval(actualizar, 10000);
+
+  // Reinicio diario: por si la página queda abierta pasada la medianoche,
+  // comprobamos cada 60s si la fecha cambió y reiniciamos contador si es necesario.
+  let fechaGuardada = nowKey();
+  setInterval(() => {
+    const hoy = nowKey();
+    if (hoy !== fechaGuardada) {
+      fechaGuardada = hoy;
+      totalOperaciones = 0;
+      guardarContador();
+      // refrescar visual
+      sincronizarTasa();
+      actualizar();
+    }
+  }, 60000);
+
+})();
 
 document.addEventListener("DOMContentLoaded", getRates);
