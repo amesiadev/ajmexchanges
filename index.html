@@ -74,11 +74,38 @@
       <p id="bonusInfo">Bono: 0 Bs</p>
       <span id="finalResult">0 Bs</span>
     </div>
-    <!-- 🔹 Simulador de transacciones en vivo -->
-<section class="simulador-transacciones">
-  <h3>💹 Transacciones en vivo</h3>
-  <ul id="transactions-list"></ul>
-</section>
+    <!-- === Simulador de transacciones AJM Exchanges === -->
+<div class="widget-transacciones">
+  <button id="toggle-widget" class="btn-widget" aria-expanded="false" aria-controls="panel-transacciones">
+    💹 Transacciones en vivo
+  </button>
+
+  <div id="panel-transacciones" class="panel oculto" role="region" aria-label="Transacciones en vivo">
+    <header>
+      <h3>💰 Actividad del día</h3>
+      <p id="tasa-actual">Tasa actual: 260 Bs/USD</p>
+      <p id="contador-transacciones">🔸 0 operaciones completadas hoy</p>
+    </header>
+
+    <div class="barra-progreso" aria-hidden="true">
+      <div id="progreso" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    </div>
+
+    <div id="notificacion-nuevas" aria-live="polite">+0 nuevas operaciones</div>
+
+    <!-- Tabla compacta de operaciones recientes -->
+    <div class="tabla-operaciones">
+      <div class="tabla-encabezado">
+        <div>Cliente</div>
+        <div>Operación</div>
+        <div>Resultado</div>
+        <div>Tiempo</div>
+      </div>
+      <div id="transactions-list" class="tabla-body" role="list"></div>
+    </div>
+  </div>
+</div>
+<!-- === Fin simulador === -->
     <section class="trust-section">
     <div class="trust-card">
     <img src="icons/secure-icon.png" alt="Seguridad">
