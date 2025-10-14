@@ -144,7 +144,7 @@
       .catch(err => console.error("Error SW:", err));
   }
 </script>
-  <!-- Botón flotante AJM Exchanges -->
+<!-- Botón flotante AJM Exchanges -->
 <div id="boton-pago" onclick="abrirModalPago()">💳 Dónde pagar</div>
 
 <!-- Modal de pago -->
@@ -152,9 +152,16 @@
   <div class="modal-contenido">
     <span class="cerrar" onclick="cerrarModalPago()">&times;</span>
     <h2>Dónde pagar</h2>
-    <p>Escanea el código QR de tu banco preferido:</p>
-    <div class="qr-unico">
-      <img src="icons/qr-pagos.png" alt="QR de Nequi y Bancolombia">
+    <p>Escanea el código QR según tu banco:</p>
+    <div class="qr-contenedor">
+      <div class="qr-item">
+        <img src="icons/qrnequi.png" alt="QR Nequi">
+        <h4>Nequi</h4>
+      </div>
+      <div class="qr-item">
+        <img src="icons/qrbancolombia.png" alt="QR Bancolombia">
+        <h4>Bancolombia</h4>
+      </div>
     </div>
   </div>
 </div>
