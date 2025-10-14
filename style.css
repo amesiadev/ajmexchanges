@@ -711,3 +711,79 @@ h1::after {
   .tabla-encabezado, .tabla-body .fila { grid-template-columns: 1fr 1fr 1fr 70px; font-size: 12px; }
   .btn-widget { padding: 10px 14px; font-size:13px; }
 }
+/* Botón flotante estilo AJM Exchanges */
+#boton-pago {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  background-color: #0a1a2f;
+  color: #f6c90e;
+  font-family: 'Poppins', sans-serif;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#boton-pago:hover {
+  background-color: #142c4b;
+  transform: scale(1.05);
+}
+
+/* Modal general */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+}
+
+.modal-contenido {
+  background: #ffffff;
+  margin: 10% auto;
+  padding: 30px 20px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-contenido h2 {
+  color: #0a1a2f;
+  margin-bottom: 10px;
+}
+
+.modal-contenido p {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 18px;
+}
+
+.cerrar {
+  color: #999;
+  float: right;
+  font-size: 26px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.cerrar:hover {
+  color: #0a1a2f;
+}
+
+/* Imagen única del QR */
+.qr-unico img {
+  width: 100%;
+  max-width: 340px;
+  border-radius: 10px;
+  border: 2px solid #eee;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
