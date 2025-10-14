@@ -105,6 +105,12 @@
 <a href="https://t.me/ajmexchanges" target="_blank" class="btn-telegram">
   <img src="icons/telegram-icon.png" alt="Telegram">
 </a>
-
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js")
+      .then(() => console.log("SW registrado"))
+      .catch(err => console.error("Error SW:", err));
+  }
+</script>
 </body>
 </html>
