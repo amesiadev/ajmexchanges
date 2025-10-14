@@ -149,5 +149,64 @@ async function compartirWhatsApp() {
 const track = document.querySelector('.carousel-track');
 const clone = track.innerHTML;
 track.innerHTML += clone;
+// === Simulador de transacciones AJM Exchanges ===
+
+const names = [
+  "Carlos M.", "Ana P.", "Luis G.", "María J.", "Pedro R.", "Daniela T.",
+  "Andrés L.", "Rosa C.", "Miguel A.", "Laura S."
+];
+
+const operations = [
+  { tipo: "USD → Bs", icon: "🇺🇸 → 🇻🇪" },
+  { tipo: "COP → Bs", icon: "🇨🇴 → 🇻🇪" },
+  { tipo: "Bs → USD", icon: "🇻🇪 → 🇺🇸" }
+];
+
+const list = document.getElementById("transactions-list");
+const tasa = 260; // Tasa actual Bs/USD
+const tasaCOP = tasa / 110; // Aproximado: 1 USD = 1100 COP
+
+function randomAmount(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function randomTime() {
+  const mins = Math.floor(Math.random() * 10) + 1;
+  return `hace ${mins} min`;
+}
+
+function generateTransaction() {
+  const name = names[Math.floor(Math.random() * names.length)];
+  const { tipo, icon } = operations[Math.floor(Math.random() * operations.length)];
+  let amount = randomAmount(50, 5000);
+  let result;
+
+  if (tipo === "USD → Bs") {
+    result = (amount * tasa).toLocaleString("es-VE") + " Bs";
+  } else if (tipo === "COP → Bs") {
+    result = (amount * tasaCOP).toLocaleString("es-VE") + " Bs";
+  } else {
+    result = "$" + (amount / tasa).toFixed(2);
+  }
+
+  return `
+    <li>
+      💱 <strong>${name}</strong> ${icon}<br>
+      Cambió <strong>${amount.toLocaleString()} ${tipo.split(" ")[0]}</strong> → 
+      <strong>${result}</strong><br>
+      <small>🕒 ${randomTime()}</small>
+    </li>`;
+}
+
+function updateTransactions() {
+  const transactions = [];
+  for (let i = 0; i < 6; i++) {
+    transactions.push(generateTransaction());
+  }
+  list.innerHTML = transactions.join("");
+}
+
+updateTransactions();
+setInterval(updateTransactions, 10000);
 
 document.addEventListener("DOMContentLoaded", getRates);
