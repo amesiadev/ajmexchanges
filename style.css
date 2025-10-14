@@ -587,3 +587,127 @@ h1::after {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* === AJM Exchanges — Widget flotante (tabla de operaciones) === */
+.widget-transacciones {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  z-index: 9999;
+  font-family: "Poppins", sans-serif;
+  color: #1b2b4b;
+}
+
+/* Botón flotante */
+.btn-widget {
+  background: linear-gradient(135deg,#007bff,#00c6ff);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 18px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.btn-widget:hover { transform: translateY(-2px); }
+
+/* Panel */
+.panel {
+  display: none;
+  position: relative;
+  background: #fff;
+  width: 380px;
+  max-height: 560px;
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+  padding: 16px;
+  margin-top: 10px;
+  overflow: hidden;
+  transition: opacity .32s ease, transform .32s ease;
+}
+.panel.oculto { opacity: 0; transform: translateY(8px); pointer-events: none; }
+.panel:not(.oculto) { display: block; opacity: 1; transform: translateY(0); }
+
+/* Header */
+.panel header { text-align: center; margin-bottom: 8px; }
+.panel header h3 { margin: 0; color: #0066cc; font-size: 16px; }
+#tasa-actual { margin: 6px 0 2px; color: #007bff; font-size: 13px; }
+#contador-transacciones { margin: 0 0 10px; font-size: 13px; color:#0066cc; }
+
+/* Barra de progreso */
+.barra-progreso {
+  background: #e9eef5;
+  border-radius: 12px;
+  height: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+#progreso {
+  height: 10px;
+  width: 0%;
+  background: linear-gradient(90deg,#007bff,#00c6ff);
+  border-radius: 12px;
+  transition: width .8s ease;
+}
+#progreso.pulso { animation: pulsoBrillo 1.1s ease; }
+@keyframes pulsoBrillo { 0% { box-shadow:0 0 0 rgba(0,198,255,.6) } 50% { box-shadow:0 0 12px rgba(0,198,255,.9)} 100% { box-shadow:0 0 0 rgba(0,198,255,.6)} }
+
+/* Notificación +N */
+#notificacion-nuevas {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  background: linear-gradient(90deg,#00c853,#64dd17);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 24px;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity .36s ease, transform .36s ease;
+  pointer-events: none;
+}
+#notificacion-nuevas.visible { opacity: 1; transform: translateY(0); animation: desaparecer 1.9s ease 1s forwards; }
+@keyframes desaparecer { to { opacity: 0; transform: translateY(-10px); } }
+
+/* Tabla de operaciones (compacta) */
+.tabla-operaciones { border-radius: 8px; overflow: hidden; border: 1px solid #eef4fb; }
+.tabla-encabezado {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 80px;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f6fbff;
+  color: #1b2b4b;
+  font-weight: 600;
+  font-size: 12px;
+}
+.tabla-body {
+  max-height: 300px;
+  overflow-y: auto;
+}
+.tabla-body .fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 80px;
+  gap: 8px;
+  padding: 10px 12px;
+  border-top: 1px solid #f1f6fb;
+  font-size: 13px;
+  background: #fff;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp .45s ease forwards;
+}
+.tabla-body .fila small { color: #888; font-size: 12px; }
+
+/* Animación entradas */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(8px) } to { opacity:1; transform:translateY(0) } }
+
+/* Responsivo */
+@media (max-width:600px) {
+  .panel { width: 92vw; max-height: 68vh; border-radius: 12px; padding: 12px; }
+  .tabla-encabezado, .tabla-body .fila { grid-template-columns: 1fr 1fr 1fr 70px; font-size: 12px; }
+  .btn-widget { padding: 10px 14px; font-size:13px; }
+}
