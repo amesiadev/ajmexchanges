@@ -1,5 +1,6 @@
 let bcvRate = null;
 let usdToCopRate = null;
+let tasa = 260;
 
 // Obtener tasas
 async function getRates() {
@@ -34,7 +35,7 @@ function calculate() {
 
   // Calculos
   const baseValue = usdValue * bcvRate;
-  const faltaPorDolar = 260 - bcvRate;
+  const faltaPorDolar = tasa - bcvRate;
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
 
@@ -177,7 +178,6 @@ track.innerHTML += clone;
   ];
 
   // Config
-  let tasa = 260;
   let tasaCOP = tasa / 110;
   const metaDiaria = 250;
   let totalOperaciones = 0;
@@ -218,7 +218,7 @@ track.innerHTML += clone;
     const monto = rand(50,5000);
     let resultado = "";
     if (op.tipo === "USD → Bs") resultado = (monto * tasa).toLocaleString("es-VE") + " Bs";
-    else if (op.tipo === "COP → Bs") resultado = (monto * tasaCOP).toLocaleString("es-VE") + " Bs";
+    else if (op.tipo === "COP → Bs") resultado = ((monto/usdToCopRate) * tasa).toLocaleString("es-VE") + " Bs";
     else resultado = "$" + (monto / tasa).toFixed(2);
 
     totalOperaciones++;
