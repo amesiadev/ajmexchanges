@@ -1,9 +1,10 @@
 let bcvRate = null;
 let usdToCopRate = null;
 let tasa = 260;
+let tasaVenta = 295;
 
 // Obtener tasas
-async function getRates() {
+ function getRates() {
   try {
     const res = await fetch("https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES");
     const data = await res.json();
@@ -219,7 +220,7 @@ track.innerHTML += clone;
     let resultado = "";
     if (op.tipo === "USD → Bs") resultado = (monto * tasa).toFixed(2) + " Bs";
     else if (op.tipo === "COP → Bs") resultado = ((monto/usdToCopRate) * tasa).toFixed(2) + " Bs";
-    else resultado = "$" + (monto / tasa).toFixed(2);
+    else resultado = "$" + (monto / tasaVenta).toFixed(2);
 
     totalOperaciones++;
     guardarContador();
