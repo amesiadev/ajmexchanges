@@ -714,7 +714,7 @@ h1::after {
 /* Botón flotante estilo AJM Exchanges */
 #boton-pago {
   position: fixed;
-  bottom: 122px;
+  bottom: 222px;
   right: 22px;
   background-color: #0a1a2f;
   color: #f6c90e;
