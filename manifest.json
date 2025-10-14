@@ -1,0 +1,22 @@
+{
+  "name": "AJMEXCHANGES",
+  "short_name": "AJMEX",
+  "description": "Calculadora de divisas y envío seguro",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0A84FF",
+  "theme_color": "#0056b3",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "incons/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "incons/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
