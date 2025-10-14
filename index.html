@@ -158,5 +158,19 @@
     </div>
   </div>
 </div>
+  <script>
+function abrirModalPago() {
+  document.getElementById("modal-pago").style.display = "block";
+}
+function cerrarModalPago() {
+  document.getElementById("modal-pago").style.display = "none";
+}
+window.onclick = function(event) {
+  let modal = document.getElementById("modal-pago");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+  </script>
 </body>
 </html>
