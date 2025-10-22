@@ -18,7 +18,7 @@ async function getRates() {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
-  document.getElementById("tasa-actual").innerText=`${tasa.toFixed(2)} Bs`;
+  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`;
 }
 
 function calculate() {
