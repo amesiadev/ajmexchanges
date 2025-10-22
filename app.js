@@ -1,6 +1,6 @@
 let bcvRate = null;
 let usdToCopRate = null;
-let tasa = 265;
+let tasa = 270;
 let tasaVenta = 300;
 
 // Obtener tasas
@@ -18,6 +18,7 @@ async function getRates() {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
+  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`;
 }
 
 function calculate() {
