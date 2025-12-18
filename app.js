@@ -339,16 +339,16 @@ function generarOperacionesFrecuentes() {
         </div>
 
         <div class="card-body">
-          <p class="monto">${cop.toFixed(2)} COP</p>
-          <p><strong>Total USD:</strong> ${usd.toFixed(2)}</p>
-          <p><strong>Recibes:</strong> ${bs.toFixed(2)} Bs</p>
+          <p class="monto">${cop} COP</p>
+          <p><strong>Total USD:</strong> ${usd}</p>
+          <p><strong>Recibes:</strong> ${bs} Bs</p>
           <p class="tasa">
-            Tasa: 1 USD = ${tasaCOP_USD.toFixed(2)} COP | ${tasaUSD_BS} Bs
+            Tasa: 1 USD = ${tasaCOP_USD} COP | ${tasaUSD_BS} Bs
           </p>
         </div>
 
         <div class="card-footer">
-          <span>${new Date().toLocaleString("es-CO")}</span>
+          <span>${new Date()}</span>
           <span>AJM Exchanges</span>
         </div>
 
