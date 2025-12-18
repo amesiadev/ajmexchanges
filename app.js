@@ -315,6 +315,8 @@ track.innerHTML += clone;
 
 })();
 
+document.addEventListener("DOMContentLoaded", getRates);
+
 /* GENERAR CARDS AUTOMÁTICAMENTE */
 function generarOperacionesFrecuentes() {
   const container = document.getElementById("operationsCards");
@@ -415,7 +417,5 @@ function descargarImagen(dataUrl, nombre) {
   link.download = nombre;
   link.click();
 }
-
-document.addEventListener("DOMContentLoaded", getRates);
 /* INICIALIZAR */
 generarOperacionesFrecuentes();
