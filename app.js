@@ -315,4 +315,113 @@ track.innerHTML += clone;
 
 })();
 
+/* CONFIGURA TUS TASAS AQUÍ */
+const tasaCOP_USD = usdToCopRate;   // Ejemplo
+const tasaUSD_BS  = tasa;  // Ejemplo
+
+/* GENERAR CARDS AUTOMÁTICAMENTE */
+function generarOperacionesFrecuentes() {
+  const container = document.getElementById("operationsCards");
+  container.innerHTML = "";
+
+  for (let cop = 10000; cop <= 100000; cop += 10000) {
+    const usd = cop / tasaCOP_USD;
+    const bs  = usd * tasaUSD_BS;
+
+    const cardWrapper = document.createElement("div");
+
+    cardWrapper.innerHTML = `
+      <div class="operation-content" id="card-${cop}">
+        
+        <div class="card-header">
+          <img src="assets/logo-ajm.png" alt="AJM Exchanges">
+          <h4>AJM Exchanges</h4>
+        </div>
+
+        <div class="card-body">
+          <p class="monto">${cop.toLocaleString("es-CO")} COP</p>
+          <p><strong>Total USD:</strong> ${usd.toFixed(2)}</p>
+          <p><strong>Recibes:</strong> ${bs.toLocaleString("es-VE", { maximumFractionDigits: 2 })} Bs</p>
+          <p class="tasa">
+            Tasa: 1 USD = ${tasaCOP_USD.toLocaleString("es-CO")} COP | ${tasaUSD_BS} Bs
+          </p>
+        </div>
+
+        <div class="card-footer">
+          <span>${new Date().toLocaleString("es-CO")}</span>
+          <span>AJM Exchanges</span>
+        </div>
+
+      </div>
+
+      <button class="share-btn" onclick="compartirImagen('card-${cop}')">
+        Compartir imagen
+      </button>
+    `;
+
+    container.appendChild(cardWrapper);
+  }
+}
+
+/* COMPARTIR UNA CARD COMO IMAGEN */
+async function compartirImagen(cardId) {
+  const element = document.getElementById(cardId);
+
+  const canvas = await html2canvas(element, {
+    scale: 2,
+    backgroundColor: "#0b0b0b"
+  });
+
+  const dataUrl = canvas.toDataURL("image/png");
+  const blob = await (await fetch(dataUrl)).blob();
+  const file = new File([blob], "ajm-exchanges.png", { type: "image/png" });
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    await navigator.share({
+      title: "AJM Exchanges – Cotización",
+      files: [file]
+    });
+  } else {
+    descargarImagen(dataUrl, "ajm-exchanges.png");
+  }
+}
+
+/* COMPARTIR TODAS LAS CARDS */
+async function compartirTodasLasCards() {
+  const section = document.getElementById("quick-operations");
+  section.classList.add("hide-for-capture");
+
+  const canvas = await html2canvas(section, {
+    scale: 2,
+    backgroundColor: "#0b0b0b"
+  });
+
+  section.classList.remove("hide-for-capture");
+
+  const dataUrl = canvas.toDataURL("image/png");
+  const blob = await (await fetch(dataUrl)).blob();
+  const file = new File([blob], "ajm-exchanges-operaciones.png", {
+    type: "image/png"
+  });
+
+  if (navigator.canShare && navigator.canShare({ files: [file] })) {
+    await navigator.share({
+      title: "AJM Exchanges – Operaciones frecuentes",
+      files: [file]
+    });
+  } else {
+    descargarImagen(dataUrl, "ajm-exchanges-operaciones.png");
+  }
+}
+
+/* DESCARGA FALLBACK */
+function descargarImagen(dataUrl, nombre) {
+  const link = document.createElement("a");
+  link.href = dataUrl;
+  link.download = nombre;
+  link.click();
+}
+
 document.addEventListener("DOMContentLoaded", getRates);
+/* INICIALIZAR */
+generarOperacionesFrecuentes();
