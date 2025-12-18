@@ -893,3 +893,13 @@ h1::after {
 .hide-for-capture .share-all-btn {
   display: none;
 }
+
+.hide-for-capture button,
+.hide-for-capture .share-btn {
+  display: none !important;
+}
+
+#quick-operations {
+  image-rendering: crisp-edges;
+  -webkit-font-smoothing: antialiased;
+}
