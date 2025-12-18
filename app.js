@@ -366,8 +366,8 @@ async function compartirImagen(cardId) {
   const element = document.getElementById(cardId);
 
   const canvas = await html2canvas(element, {
-    scale: 2,
-    backgroundColor: "#0b0b0b"
+  scale: 3,
+  backgroundColor: '#f4f7fb'
   });
 
   const dataUrl = canvas.toDataURL("image/png");
@@ -398,14 +398,15 @@ async function compartirTodasLasCards() {
 
   // Ocultar botones
   section.classList.add("hide-for-capture");
-
+  
   const canvas = await html2canvas(section, {
-    backgroundColor: "#ffffff",
-    scale: window.devicePixelRatio * 2,
-    useCORS: true,
-    allowTaint: false,
-    logging: false
+  scale: 3,
+  backgroundColor: "#f4f7fb", // mismo fondo del card
+  useCORS: true,
+  allowTaint: false,
+  logging: false
   });
+
 
   // Restaurar estilos
   section.style.width = originalWidth;
