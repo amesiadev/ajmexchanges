@@ -19,6 +19,8 @@ async function getRates() {
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
   document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`;
+  /*Generamos las tarjetas*/
+  generarOperacionesFrecuentes();
 }
 
 function calculate() {
@@ -315,8 +317,6 @@ track.innerHTML += clone;
 
 })();
 
-document.addEventListener("DOMContentLoaded", getRates);
-
 /* GENERAR CARDS AUTOMÁTICAMENTE */
 function generarOperacionesFrecuentes() {
   const container = document.getElementById("operationsCards");
@@ -417,5 +417,4 @@ function descargarImagen(dataUrl, nombre) {
   link.download = nombre;
   link.click();
 }
-/* INICIALIZAR */
-generarOperacionesFrecuentes();
+document.addEventListener("DOMContentLoaded", getRates);
