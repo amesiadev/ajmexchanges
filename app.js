@@ -321,9 +321,7 @@ function generarOperacionesFrecuentes() {
   container.innerHTML = "";
   
   for (let cop = 10000; cop <= 100000; cop += 10000) {
-    let usd = cop / usdToCopRate;
-    let bs  = usd * tasa;
-
+    
     const cardWrapper = document.createElement("div");
 
     cardWrapper.innerHTML = `
@@ -336,8 +334,8 @@ function generarOperacionesFrecuentes() {
 
         <div class="card-body">
           <p class="monto">${cop} COP</p>
-          <p><strong>Total USD:</strong> ${usd}</p>
-          <p><strong>Recibes:</strong> ${bs} Bs</p>
+          <p><strong>Total USD:</strong> ${cop/usdToCopRate}</p>
+          <p><strong>Recibes:</strong> ${(cop/usdToCopRate)*tasa} Bs</p>
           <p class="tasa">
             Tasa: 1 USD = ${usdToCopRate} COP | ${tasa} Bs
           </p>
