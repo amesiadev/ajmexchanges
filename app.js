@@ -316,8 +316,8 @@ track.innerHTML += clone;
 })();
 
 /* CONFIGURA TUS TASAS AQUÍ */
-const tasaCOP_USD = usdToCopRate.toFixed(2);   // Ejemplo
-const tasaUSD_BS  = tasa.toFixed(2);  // Ejemplo
+let tasaCOP_USD = usdToCopRate;   // Ejemplo
+let tasaUSD_BS  = tasa;  // Ejemplo
 
 /* GENERAR CARDS AUTOMÁTICAMENTE */
 function generarOperacionesFrecuentes() {
@@ -325,8 +325,8 @@ function generarOperacionesFrecuentes() {
   container.innerHTML = "";
   
   for (let cop = 10000; cop <= 100000; cop += 10000) {
-    const usd = cop / tasaCOP_USD;
-    const bs  = usd * tasaUSD_BS;
+    let usd = cop / tasaCOP_USD;
+    let bs  = usd * tasaUSD_BS;
 
     const cardWrapper = document.createElement("div");
 
