@@ -323,7 +323,7 @@ const tasaUSD_BS  = tasa;  // Ejemplo
 function generarOperacionesFrecuentes() {
   const container = document.getElementById("operationsCards");
   container.innerHTML = "";
-
+  
   for (let cop = 10000; cop <= 100000; cop += 10000) {
     const usd = cop / tasaCOP_USD;
     const bs  = usd * tasaUSD_BS;
@@ -339,11 +339,11 @@ function generarOperacionesFrecuentes() {
         </div>
 
         <div class="card-body">
-          <p class="monto">${cop.toLocaleString("es-CO")} COP</p>
+          <p class="monto">${cop.toFixed(2)} COP</p>
           <p><strong>Total USD:</strong> ${usd.toFixed(2)}</p>
-          <p><strong>Recibes:</strong> ${bs.toLocaleString("es-VE", { maximumFractionDigits: 2 })} Bs</p>
+          <p><strong>Recibes:</strong> ${bs.toFixed(2)} Bs</p>
           <p class="tasa">
-            Tasa: 1 USD = ${tasaCOP_USD.toLocaleString("es-CO")} COP | ${tasaUSD_BS} Bs
+            Tasa: 1 USD = ${tasaCOP_USD.toFixed(2)} COP | ${tasaUSD_BS} Bs
           </p>
         </div>
 
