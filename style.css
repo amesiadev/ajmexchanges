@@ -801,3 +801,95 @@ h1::after {
   color: #0a1a2f;
   font-size: 15px;
 }
+/* SE AGREGA CSS PARA CARD DE OPERACIONES FRECUENTES*/
+/* CONTENEDOR GENERAL */
+#quick-operations {
+  padding: 16px;
+  background: #0b0b0b;
+  border-radius: 18px;
+}
+
+/* GRID DE CARDS */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 15px;
+  margin-top: 15px;
+}
+
+/* CARD */
+.operation-content {
+  background: linear-gradient(145deg, #0b0b0b, #151515);
+  border-radius: 16px;
+  padding: 14px;
+  color: #eafff6;
+  border: 1px solid rgba(0,255,150,0.3);
+  box-shadow: 0 0 18px rgba(0,255,150,0.2);
+  font-family: Arial, sans-serif;
+}
+
+/* HEADER */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid rgba(0,255,150,0.2);
+  padding-bottom: 6px;
+}
+
+.card-header img {
+  width: 34px;
+  height: 34px;
+}
+
+.card-header h4 {
+  margin: 0;
+  color: #00ff99;
+}
+
+/* BODY */
+.card-body {
+  text-align: center;
+  margin: 12px 0;
+}
+
+.monto {
+  font-size: 22px;
+  font-weight: bold;
+  color: #00ff99;
+  margin-bottom: 6px;
+}
+
+.tasa {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+/* FOOTER */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+/* BOTONES */
+.share-btn,
+.share-all-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 9px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #00ff99, #00cc77);
+  color: #000;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+/* OCULTAR EN CAPTURA */
+.hide-for-capture .share-btn,
+.hide-for-capture .share-all-btn {
+  display: none;
+}
