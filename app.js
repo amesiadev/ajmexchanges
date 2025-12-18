@@ -338,10 +338,10 @@ function generarOperacionesFrecuentes() {
       
         <div class="card-body">
           <p class="monto">${cop} COP</p>
-          <p><strong>Total USD:</strong> ${usd.toFixed(2)}</p>
-          <p><strong>Recibes:</strong> ${bs.toLocaleString("es-VE", { minimumFractionDigits: 2 })} Bs</p>
+          <p><strong>Total USD:</strong> ${usd.toFixed(2)} $</p>
+          <p><strong>Recibes:</strong> ${bs.toFixed(2)} Bs</p>
           <p class="tasa">
-            Tasa: 1 USD = ${usdToCopRate} COP | ${tasa} Bs
+            Tasa: 1 USD = ${usdToCopRate.toFixed(2)} COP | ${tasa.toFixed(2)} Bs
           </p>
         </div>
 
