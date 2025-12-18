@@ -334,7 +334,7 @@ function generarOperacionesFrecuentes() {
       <div class="operation-content" id="card-${cop}">
         
         <div class="card-header">
-          <img src="assets/logo-ajm.png" alt="AJM Exchanges">
+          <img src="assets/logotipo.png" alt="AJM Exchanges">
           <h4>AJM Exchanges</h4>
         </div>
 
