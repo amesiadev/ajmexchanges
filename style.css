@@ -801,31 +801,34 @@ h1::after {
   color: #0a1a2f;
   font-size: 15px;
 }
-/* SE AGREGA CSS PARA CARD DE OPERACIONES FRECUENTES*/
+/* ================================
+   AJM Exchanges – Operaciones frecuentes (CORPORATIVO)
+================================ */
+
 /* CONTENEDOR GENERAL */
 #quick-operations {
-  padding: 16px;
-  background: #0b0b0b;
+  padding: 18px;
+  background: #f4f7fb;
   border-radius: 18px;
 }
 
 /* GRID DE CARDS */
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 15px;
-  margin-top: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
 }
 
 /* CARD */
 .operation-content {
-  background: linear-gradient(145deg, #0b0b0b, #151515);
+  background: #ffffff;
   border-radius: 16px;
-  padding: 14px;
-  color: #eafff6;
-  border: 1px solid rgba(0,255,150,0.3);
-  box-shadow: 0 0 18px rgba(0,255,150,0.2);
-  font-family: Arial, sans-serif;
+  padding: 16px;
+  border: 1px solid #e3e9f2;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  font-family: "Poppins", sans-serif;
+  color: #1b2b4b;
 }
 
 /* HEADER */
@@ -833,73 +836,87 @@ h1::after {
   display: flex;
   align-items: center;
   gap: 10px;
-  border-bottom: 1px solid rgba(0,255,150,0.2);
-  padding-bottom: 6px;
+  border-bottom: 1px solid #eef2f7;
+  padding-bottom: 8px;
 }
 
 .card-header img {
-  width: 34px;
-  height: 34px;
+  width: 30px;
+  height: 30px;
 }
 
 .card-header h4 {
   margin: 0;
-  color: #00ff99;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a3d91;
 }
 
 /* BODY */
 .card-body {
   text-align: center;
-  margin: 12px 0;
+  margin: 14px 0;
 }
 
 .monto {
   font-size: 22px;
-  font-weight: bold;
-  color: #00ff99;
+  font-weight: 700;
+  color: #0a3d91;
   margin-bottom: 6px;
+}
+
+.card-body .usd {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1b2b4b;
+}
+
+.card-body .bs {
+  font-size: 14px;
+  color: #4a5d7a;
+  margin-top: 4px;
 }
 
 .tasa {
   font-size: 12px;
-  opacity: 0.8;
-  margin-top: 6px;
+  color: #7a8ca6;
+  margin-top: 8px;
 }
 
 /* FOOTER */
 .card-footer {
   display: flex;
   justify-content: space-between;
-  font-size: 10px;
-  opacity: 0.6;
+  font-size: 11px;
+  color: #8a9bb2;
+  margin-top: 6px;
 }
 
 /* BOTONES */
 .share-btn,
 .share-all-btn {
-  margin-top: 10px;
+  margin-top: 12px;
   width: 100%;
-  padding: 9px;
+  padding: 10px;
   border-radius: 12px;
-  background: linear-gradient(90deg, #00ff99, #00cc77);
-  color: #000;
-  font-weight: bold;
+  background: linear-gradient(135deg, #0a3d91, #0d6efd);
+  color: #ffffff;
+  font-weight: 600;
   border: none;
   cursor: pointer;
+  font-size: 13px;
 }
 
-/* OCULTAR EN CAPTURA */
+/* OCULTAR BOTONES EN CAPTURA */
 .hide-for-capture .share-btn,
 .hide-for-capture .share-all-btn {
-  display: none;
-}
-
-.hide-for-capture button,
-.hide-for-capture .share-btn {
   display: none !important;
 }
 
+/* MEJOR CALIDAD EN CAPTURA */
 #quick-operations {
-  image-rendering: crisp-edges;
+  background-color: #f4f7fb;
   -webkit-font-smoothing: antialiased;
+  image-rendering: auto;
 }
+
