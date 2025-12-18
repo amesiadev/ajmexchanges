@@ -315,18 +315,14 @@ track.innerHTML += clone;
 
 })();
 
-/* CONFIGURA TUS TASAS AQUÍ */
-let tasaCOP_USD = usdToCopRate;   // Ejemplo
-let tasaUSD_BS  = tasa;  // Ejemplo
-
 /* GENERAR CARDS AUTOMÁTICAMENTE */
 function generarOperacionesFrecuentes() {
   const container = document.getElementById("operationsCards");
   container.innerHTML = "";
   
   for (let cop = 10000; cop <= 100000; cop += 10000) {
-    let usd = cop / tasaCOP_USD;
-    let bs  = usd * tasaUSD_BS;
+    let usd = cop / usdToCopRate;
+    let bs  = usd * tasa;
 
     const cardWrapper = document.createElement("div");
 
@@ -343,7 +339,7 @@ function generarOperacionesFrecuentes() {
           <p><strong>Total USD:</strong> ${usd}</p>
           <p><strong>Recibes:</strong> ${bs} Bs</p>
           <p class="tasa">
-            Tasa: 1 USD = ${tasaCOP_USD} COP | ${tasaUSD_BS} Bs
+            Tasa: 1 USD = ${usdToCopRate} COP | ${tasa} Bs
           </p>
         </div>
 
