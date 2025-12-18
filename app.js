@@ -1,5 +1,6 @@
 let bcvRate = null;
 let usdToCopRate = null;
+let usdRate  = null;
 let tasa = 360;
 let tasaVenta = 420;
 
@@ -323,7 +324,8 @@ function generarOperacionesFrecuentes() {
   container.innerHTML = "";
   
   for (let cop = 10000; cop <= 100000; cop += 10000) {
-    
+    const usd = cop / usdToCopRate;
+    const bs = usd * tasa;
     const cardWrapper = document.createElement("div");
 
     cardWrapper.innerHTML = `
@@ -333,18 +335,18 @@ function generarOperacionesFrecuentes() {
           <img src="icons/logotipo.png" alt="AJM Exchanges">
           <h4>AJM Exchanges</h4>
         </div>
-
+      
         <div class="card-body">
           <p class="monto">${cop} COP</p>
-          <p><strong>Total USD:</strong> ${cop/usdToCopRate}</p>
-          <p><strong>Recibes:</strong> ${(cop/usdToCopRate)*tasa} Bs</p>
+          <p><strong>Total USD:</strong> ${usd.toFixed(2)}</p>
+          <p><strong>Recibes:</strong> ${bs.toLocaleString("es-VE", { minimumFractionDigits: 2 })} Bs</p>
           <p class="tasa">
             Tasa: 1 USD = ${usdToCopRate} COP | ${tasa} Bs
           </p>
         </div>
 
         <div class="card-footer">
-          <span>${new Date()}</span>
+          <span>${new Date().toLocaleString("es-VE")}</span>
           <span>AJM Exchanges</span>
         </div>
 
