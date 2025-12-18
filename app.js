@@ -316,8 +316,8 @@ track.innerHTML += clone;
 })();
 
 /* CONFIGURA TUS TASAS AQUÍ */
-const tasaCOP_USD = usdToCopRate;   // Ejemplo
-const tasaUSD_BS  = tasa;  // Ejemplo
+const tasaCOP_USD = usdToCopRate.toFixed(2);   // Ejemplo
+const tasaUSD_BS  = tasa.toFixed(2);  // Ejemplo
 
 /* GENERAR CARDS AUTOMÁTICAMENTE */
 function generarOperacionesFrecuentes() {
@@ -334,7 +334,7 @@ function generarOperacionesFrecuentes() {
       <div class="operation-content" id="card-${cop}">
         
         <div class="card-header">
-          <img src="assets/logotipo.png" alt="AJM Exchanges">
+          <img src="icons/logotipo.png" alt="AJM Exchanges">
           <h4>AJM Exchanges</h4>
         </div>
 
