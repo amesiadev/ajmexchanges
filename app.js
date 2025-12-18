@@ -385,16 +385,33 @@ async function compartirImagen(cardId) {
 /* COMPARTIR TODAS LAS CARDS */
 async function compartirTodasLasCards() {
   const section = document.getElementById("quick-operations");
+
+  // Guardamos estilos actuales
+  const originalWidth = section.style.width;
+  const originalTransform = section.style.transform;
+
+  // Forzar tamaño tipo flyer
+  section.style.width = "1080px"; // calidad IG / WhatsApp
+  section.style.transform = "none";
+
+  // Ocultar botones
   section.classList.add("hide-for-capture");
 
   const canvas = await html2canvas(section, {
-    scale: 2,
-    backgroundColor: "#0b0b0b"
+    backgroundColor: "#ffffff",
+    scale: window.devicePixelRatio * 2,
+    useCORS: true,
+    allowTaint: false,
+    logging: false
   });
 
+  // Restaurar estilos
+  section.style.width = originalWidth;
+  section.style.transform = originalTransform;
   section.classList.remove("hide-for-capture");
 
-  const dataUrl = canvas.toDataURL("image/png");
+  // Exportar imagen
+  const dataUrl = canvas.toDataURL("image/png", 1.0);
   const blob = await (await fetch(dataUrl)).blob();
   const file = new File([blob], "ajm-exchanges-operaciones.png", {
     type: "image/png"
