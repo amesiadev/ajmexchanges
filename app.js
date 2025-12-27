@@ -43,6 +43,7 @@ function calculate() {
   const faltaPorDolar = tasa - bcvRate;
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
+  const  bcvaprox = total / bcvRate;
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
@@ -60,8 +61,8 @@ function calculate() {
 
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
 
-  document.getElementById("finalResult").innerText =`Recibes: ${total.toFixed(2)} Bs <br>, 
-           Aprox : ${total.toFixed(2)/bcvRate.toFixed(2)} $ BCV `;
+  document.getElementById("finalResult").innerText =`Recibes: ${total.toFixed(2)} Bs, 
+           Aprox : ${bcvaprox.toFixed(2)} $ BCV `;
 }
 
 // Asegúrate que exista el contenedor de resultados en tu HTML
