@@ -41,7 +41,8 @@ function calculate() {
   } else if (currency === "COP") {
     usdValue = amount / usdToCopRate;
   } else if (currency === "EUR") {
-    eurValue = amount * eurRate;
+    usdValue = amount / eurRate;
+    copValue = usdValue * usdToCopRate;
   }
 
   // Calculos
@@ -63,7 +64,7 @@ function calculate() {
       `Equivalente: ${copValue.toFixed(2)} COP`;
   } else {
     document.getElementById("usdEquivalent").innerText = 
-      `Equivalente: ${eurValue.toFixed(2)} COP`;
+      `Equivalente: ${copValue.toFixed(2)} COP`;
   }
 
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
