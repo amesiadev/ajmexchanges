@@ -2,7 +2,7 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
-let tasa = 440;
+let tasa = 450;
 let tasaVenta = 570;
 
 // Obtener tasas
@@ -33,7 +33,6 @@ function calculate() {
 
   let usdValue;
   let copValue;
-  let eurValue;
   
   if (currency === "USD") {
     usdValue = amount;
@@ -64,7 +63,7 @@ function calculate() {
       `Equivalente: ${copValue.toFixed(2)} COP`;
   } else {
     document.getElementById("usdEquivalent").innerText = 
-      `Equivalente: ${copValue.toFixed(2)} COP`;
+      `Equivalente: ${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
   }
 
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
