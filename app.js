@@ -33,7 +33,6 @@ function calculate() {
 
   let usdValue;
   let copValue;
-  let vesValue;
   
   if (currency === "USD") {
     usdValue = amount;
@@ -69,13 +68,14 @@ function calculate() {
     document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
   }
-
+  if (currency === "VES") {
+  document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;  
+  }else{
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
-
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
-
   document.getElementById("finalResult").innerText =`Recibes: ${total.toFixed(2)} Bs, 
            Aprox : ${bcvaprox.toFixed(2)} $ BCV `;
+  }
 }
 
 // Asegúrate que exista el contenedor de resultados en tu HTML
