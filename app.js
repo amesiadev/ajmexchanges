@@ -16,7 +16,7 @@ async function getRates() {
     eurRate      = data.rates.EUR;
 
     document.getElementById("bcvRate").innerText =
-      `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP | 1 EUR = ${eurRate.toFixed(2)} USD`;
+      `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP | 1 USD = ${eurRate.toFixed(2)} EUR`;
   } catch (e) {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
