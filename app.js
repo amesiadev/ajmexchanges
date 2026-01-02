@@ -1,4 +1,5 @@
 let bcvRate = null;
+let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
 let tasa = 440;
@@ -7,11 +8,12 @@ let tasaVenta = 570;
 // Obtener tasas
 async function getRates() {
   try {
-    const res = await fetch("https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES");
+    const res = await fetch("https://openexchangerates.org/api/latest.json?app_id=8a2620eb6e304a559a3656342ae3b77b&base=USD&symbols=COP,VES,EUR");
     const data = await res.json();
     bcvRate = data.rates.VES;
     usdRate = data.rates.USD;
     usdToCopRate = data.rates.COP;
+    eurRate      = data.rates.EUR;
 
     document.getElementById("bcvRate").innerText =
       `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP`;
@@ -31,11 +33,14 @@ function calculate() {
 
   let usdValue;
   let copValue;
+  let eurValue;
   if (currency === "USD") {
     usdValue = amount;
     copValue = amount * usdToCopRate;
   } else if (currency === "COP") {
     usdValue = amount / usdToCopRate;
+  } else if (currency === "EUR") {
+    eurValue = amount * eurRate;
   }
 
   // Calculos
@@ -52,9 +57,12 @@ function calculate() {
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
       `Equivalente: ${usdValue.toFixed(2)} USD`;
-  } else {
+  } else if currency === "USD" {
     document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${copValue.toFixed(2)} COP`;
+  } else {
+    document.getElementById("usdEquivalent").innerText = 
+      `Equivalente: ${eurValue.toFixed(2)} COP`;
   }
 
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
