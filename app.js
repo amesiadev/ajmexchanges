@@ -33,6 +33,7 @@ function calculate() {
 
   let usdValue;
   let copValue;
+  let vesValue;
   
   if (currency === "USD") {
     usdValue = amount;
@@ -41,6 +42,9 @@ function calculate() {
     usdValue = amount / usdToCopRate;
   } else if (currency === "EUR") {
     usdValue = amount / eurRate;
+    copValue = usdValue * usdToCopRate;
+  }else if (currency === "VES") {
+    usdValue = amount / tasaVenta;
     copValue = usdValue * usdToCopRate;
   }
 
