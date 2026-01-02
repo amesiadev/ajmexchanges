@@ -34,6 +34,7 @@ function calculate() {
   let usdValue;
   let copValue;
   let eurValue;
+  
   if (currency === "USD") {
     usdValue = amount;
     copValue = amount * usdToCopRate;
@@ -57,7 +58,7 @@ function calculate() {
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
       `Equivalente: ${usdValue.toFixed(2)} USD`;
-  } else if currency === "USD" {
+  } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${copValue.toFixed(2)} COP`;
   } else {
