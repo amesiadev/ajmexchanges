@@ -37,8 +37,8 @@ h1 {
 #bcvRate {
   margin-bottom: 20px;
   font-weight: bold;
-  font-size: 0.8rem;
-  color: #007bff;
+  font-size: 0.7rem;
+  color: #0a3d91;
 }
 
 /* Calculadora */
@@ -105,9 +105,9 @@ h1 {
 
 #finalResult {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: #28a745;
+  color: #0a3d91;
   margin-top: 15px;
 }
 
