@@ -211,26 +211,16 @@ window.onclick = function(event) {
 }
 </script>  
 
-<div class="layout-break"></div>
-<!-- PAYPAL INIT -->
-<script>
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      color: 'blue',
-      shape: 'pill',
-      label: 'paypal',
-      height: 45
-    }
-  }).render('#paypal-button-container');
-</script>  
+<!-- PAYPAL FINAL -->
 <section id="paypal-final-section">
   <div class="paypal-final-box">
     <p class="paypal-final-text">Paga de forma segura con</p>
-    <div id="paypal-button-container">
+
+    <!-- CONTENEDOR ÚNICO HOSTED BUTTON -->
     <div id="paypal-container-SJVS33E7RPMD2"></div>
-    </div>
+
   </div>
 </section>
+  
 </body>
 </html>
