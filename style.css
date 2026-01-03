@@ -920,3 +920,28 @@ h1::after {
   image-rendering: auto;
 }
 
+.paypal-section {
+  width: 100%;
+  background: #f7f9fc; /* fondo suave */
+  padding: 40px 16px;
+  margin-top: 60px;
+}
+
+.paypal-box {
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.paypal-text {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+
+
