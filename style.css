@@ -1,22 +1,31 @@
-/* Reset básico */
+/* ===============================
+   RESET BÁSICO
+================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ===============================
+   HTML Y BODY (FLUIDOS, NO FLEX)
+================================ */
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #f5f7fa;
   color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
+  display: block;            /* 🔥 CLAVE ABSOLUTA */
   padding: 20px;
 }
 
-/* Contenedor principal */
+/* ===============================
+   CONTENEDOR PRINCIPAL
+================================ */
 .container {
   background: #fff;
   max-width: 420px;
@@ -25,6 +34,9 @@ body {
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.1);
   text-align: center;
+
+  /* 👇 CENTRADO CORRECTO */
+  margin: 0 auto;
 }
 
 /* Encabezado */
@@ -918,4 +930,29 @@ h1::after {
   background-color: #f4f7fb;
   -webkit-font-smoothing: antialiased;
   image-rendering: auto;
+}
+/* ===============================
+   PAYPAL AL FINAL DE LA PÁGINA
+================================ */
+#paypal-final-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 30px;
+}
+
+.paypal-final-box {
+  max-width: 420px;
+  width: 100%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.paypal-final-text {
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #0a3d91;
 }
