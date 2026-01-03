@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAT6i31ugCgfYc0Ia3KzqOOt1F5L2FsPJKY5X4EWjAt9dyPmF8FnEKCI-hO4gJ-15CcLOCrRXWHMCqoVw&components=hosted-buttons&disable-funding=venmo&currency=USD">
+<script
+  src="https://www.paypal.com/sdk/js?client-id=BAAT6i31ugCgfYc0Ia3KzqOOt1F5L2FsPJKY5X4EWjAt9dyPmF8FnEKCI-hO4gJ-15CcLOCrRXWHMCqoVw&components=hosted-buttons&disable-funding=venmo&currency=USD" 
+  crossorigin="anonymous" 
+  async>
 </script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -20,7 +22,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
  <meta name="theme-color" content="#0056b3">
 </head>
 <body>
-  
+<script>
+  document.addEventListener("DOMContentLoaded", (event) => {
+    paypal.HostedButtons({
+      hostedButtonId: "SJVS33E7RPMD2"
+    })
+    .render("#paypal-container-SJVS33E7RPMD2")
+  })
+</script>
   <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WKKLWTSS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -201,12 +210,6 @@ window.onclick = function(event) {
   }
 }
   </script>
-<div id="paypal-container-SJVS33E7RPMD2">
-  <script>
-          paypal.HostedButtons({
-            hostedButtonId: "SJVS33E7RPMD2",
-          }).render("#paypal-container-SJVS33E7RPMD2")
-        </script>
-</div>
+<div id="paypal-container-SJVS33E7RPMD2"></div>
 </body>
 </html>
