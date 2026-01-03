@@ -218,6 +218,17 @@ window.onclick = function(event) {
     </div>
   </div>
 </section>
-
+<!-- PAYPAL INIT -->
+<script>
+  paypal.Buttons({
+    style: {
+      layout: 'vertical',
+      color: 'blue',
+      shape: 'pill',
+      label: 'paypal',
+      height: 45
+    }
+  }).render('#paypal-button-container');
+</script>
 </body>
 </html>
