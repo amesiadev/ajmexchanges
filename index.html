@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  
+<script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAT6i31ugCgfYc0Ia3KzqOOt1F5L2FsPJKY5X4EWjAt9dyPmF8FnEKCI-hO4gJ-15CcLOCrRXWHMCqoVw&components=hosted-buttons&disable-funding=venmo&currency=USD">
+</script>
   <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -181,6 +183,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qr-item">
         <img src="icons/bancolombia.png" alt="QR Bancolombia">
         <h4>Bancolombia</h4>
+      </div>
+      <div class="qr-item">
+        <div id="paypal-container-SJVS33E7RPMD2"></div>
+        <script>
+          paypal.HostedButtons({
+            hostedButtonId: "SJVS33E7RPMD2",
+          }).render("#paypal-container-SJVS33E7RPMD2")
+        </script>
+        <h4>PAYPAL</h4>
       </div>
     </div>
   </div>
