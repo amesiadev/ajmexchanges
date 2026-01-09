@@ -2,7 +2,7 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
-let tasa = 580;
+let tasa = 520;
 let tasaVenta = 690;
 
 // Obtener tasas
