@@ -121,7 +121,20 @@ async function compartirFacebook() {
     setTimeout(() => URL.revokeObjectURL(urlObj), 5000);
 
     const shareUrl = encodeURIComponent(window.location.href);
-    const quote = encodeURIComponent("Mira mi cálculo en AJM Exchanges");
+    const quote = encodeURIComponent("💱 AJM EXCHANGES – TASA DEL DÍA 💱"+
+"En AJM Exchanges entendemos que tu dinero representa esfuerzo, familia y tranquilidad."+
+"Por eso trabajamos con una sola base: confianza y transparencia."+
+"Ofrecemos cambio de divisas seguro entre:"+
+"✅ Pesos colombianos y bolívares"+
+"✅ Dólares y euros a bolívares"+
+"✅ Bolívares a pesos colombianos"+
+"🤝 Trato humano"+
+"📈 Tasas reales"+
+"⏱ Procesos ágiles y acompañados"+
+"No somos intermediarios improvisados."+
+"Somos un servicio serio que cumple lo que dice."+
+"📩 Escríbenos con confianza"+
+"🌐 https://amesiadev.github.io/ajmexchanges");
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${quote}`, "_blank");
   } catch (err) {
     console.error("Error compartiendo en Facebook:", err);
