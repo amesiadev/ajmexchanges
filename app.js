@@ -140,7 +140,20 @@ async function compartirWhatsApp() {
       await navigator.share({
         files: [file],
         title: "Resultado AJM Exchanges",
-        text: "Te comparto mi cálculo de AJM Exchanges"
+        text: "💱 AJM EXCHANGES – TASA DEL DÍA 💱"+
+"En AJM Exchanges entendemos que tu dinero representa esfuerzo, familia y tranquilidad."+
+"Por eso trabajamos con una sola base: confianza y transparencia."+
+"Ofrecemos cambio de divisas seguro entre:"+
+"✅ Pesos colombianos y bolívares"+
+"✅ Dólares y euros a bolívares"+
+"✅ Bolívares a pesos colombianos"+
+"🤝 Trato humano"+
+"📈 Tasas reales"+
+"⏱ Procesos ágiles y acompañados"+
+"No somos intermediarios improvisados."+
+"Somos un servicio serio que cumple lo que dice."+
+"📩 Escríbenos con confianza"+
+"🌐 https://amesiadev.github.io/ajmexchanges"
       });
       return;
     }
