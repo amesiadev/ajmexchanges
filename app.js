@@ -107,7 +107,20 @@ async function compartirFacebook() {
       await navigator.share({
         files: [file],
         title: "AJM Exchanges",
-        text: "Mira mi cálculo en AJM Exchanges"
+        text: "💱 AJM EXCHANGES – TASA DEL DÍA 💱"+"\n"+
+"En AJM Exchanges entendemos que tu dinero representa esfuerzo, familia y tranquilidad."+
+"Por eso trabajamos con una sola base: confianza y transparencia."+
+"Ofrecemos cambio de divisas seguro entre:"+"\n"+
+"✅ Pesos colombianos y bolívares"+"\n"+
+"✅ Dólares y euros a bolívares"+"\n"+
+"✅ Bolívares a pesos colombianos"+"\n"+
+"🤝 Trato humano"+"\n"+
+"📈 Tasas reales"+"\n"+
+"⏱ Procesos ágiles y acompañados"+"\n"+
+"No somos intermediarios improvisados."+"\n"+
+"Somos un servicio serio que cumple lo que dice."+"\n"+
+"📩 Escríbenos con confianza"+"\n"+
+"🌐 https://amesiadev.github.io/ajmexchanges"
       });
       return;
     }
@@ -121,20 +134,7 @@ async function compartirFacebook() {
     setTimeout(() => URL.revokeObjectURL(urlObj), 5000);
 
     const shareUrl = encodeURIComponent(window.location.href);
-    const quote = encodeURIComponent("💱 AJM EXCHANGES – TASA DEL DÍA 💱"+
-"En AJM Exchanges entendemos que tu dinero representa esfuerzo, familia y tranquilidad."+
-"Por eso trabajamos con una sola base: confianza y transparencia."+
-"Ofrecemos cambio de divisas seguro entre:"+
-"✅ Pesos colombianos y bolívares"+
-"✅ Dólares y euros a bolívares"+
-"✅ Bolívares a pesos colombianos"+
-"🤝 Trato humano"+
-"📈 Tasas reales"+
-"⏱ Procesos ágiles y acompañados"+
-"No somos intermediarios improvisados."+
-"Somos un servicio serio que cumple lo que dice."+
-"📩 Escríbenos con confianza"+
-"🌐 https://amesiadev.github.io/ajmexchanges");
+    const quote = encodeURIComponent("💱 AJM EXCHANGES – TASA DEL DÍA 💱");
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${quote}`, "_blank");
   } catch (err) {
     console.error("Error compartiendo en Facebook:", err);
@@ -153,19 +153,19 @@ async function compartirWhatsApp() {
       await navigator.share({
         files: [file],
         title: "Resultado AJM Exchanges",
-        text: "💱 AJM EXCHANGES – TASA DEL DÍA 💱"+
+        text: "💱 AJM EXCHANGES – TASA DEL DÍA 💱"+"\n"+
 "En AJM Exchanges entendemos que tu dinero representa esfuerzo, familia y tranquilidad."+
 "Por eso trabajamos con una sola base: confianza y transparencia."+
-"Ofrecemos cambio de divisas seguro entre:"+
-"✅ Pesos colombianos y bolívares"+
-"✅ Dólares y euros a bolívares"+
-"✅ Bolívares a pesos colombianos"+
-"🤝 Trato humano"+
-"📈 Tasas reales"+
-"⏱ Procesos ágiles y acompañados"+
-"No somos intermediarios improvisados."+
-"Somos un servicio serio que cumple lo que dice."+
-"📩 Escríbenos con confianza"+
+"Ofrecemos cambio de divisas seguro entre:"+"\n"+
+"✅ Pesos colombianos y bolívares"+"\n"+
+"✅ Dólares y euros a bolívares"+"\n"+
+"✅ Bolívares a pesos colombianos"+"\n"+
+"🤝 Trato humano"+"\n"+
+"📈 Tasas reales"+"\n"+
+"⏱ Procesos ágiles y acompañados"+"\n"+
+"No somos intermediarios improvisados."+"\n"+
+"Somos un servicio serio que cumple lo que dice."+"\n"+
+"📩 Escríbenos con confianza"+"\n"+
 "🌐 https://amesiadev.github.io/ajmexchanges"
       });
       return;
