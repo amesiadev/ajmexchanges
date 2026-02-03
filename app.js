@@ -2,8 +2,8 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
-let tasa = 420;
-let tasaVenta = 510;
+let tasa = 435;
+let tasaVenta = 525;
 
 // Obtener tasas
 async function getRates() {
