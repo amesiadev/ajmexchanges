@@ -120,7 +120,8 @@ async function compartirFacebook() {
 "No somos intermediarios improvisados."+"\n"+
 "Somos un servicio serio que cumple lo que dice."+"\n"+
 "📩 Escríbenos con confianza"+"\n"+
-"🌐 https://amesiadev.github.io/ajmexchanges"
+"🌐 https://amesiadev.github.io/ajmexchanges"+"\n"+
+"📘👥 https://www.facebook.com/share/g/1CjPsMVSyB/"
       });
       return;
     }
@@ -166,7 +167,8 @@ async function compartirWhatsApp() {
 "No somos intermediarios improvisados."+"\n"+
 "Somos un servicio serio que cumple lo que dice."+"\n"+
 "📩 Escríbenos con confianza"+"\n"+
-"🌐 https://amesiadev.github.io/ajmexchanges"
+"🌐 https://amesiadev.github.io/ajmexchanges"+"\n"+
+"📘👥 https://www.facebook.com/share/g/1CjPsMVSyB/"
       });
       return;
     }
