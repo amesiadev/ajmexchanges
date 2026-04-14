@@ -12,7 +12,7 @@ async function getRates() {
     const data = await res.json();
     bcvRate = data.rates.VES;
     usdRate = data.rates.USD;
-    usdToCopRate = data.rates.COP;
+    usdToCopRate = data.rates.COP+100;
     eurRate      = data.rates.EUR;
 
     document.getElementById("bcvRate").innerText =
