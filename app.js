@@ -36,7 +36,7 @@ function calculate() {
   
   if (currency === "USD") {
     usdValue = amount;
-    copValue = amount * (usdToCopRate+100);
+    copValue = amount * (usdToCopRate-100);
   } else if (currency === "COP") {
     usdValue = amount / (usdToCopRate+100);
   } else if (currency === "EUR") {
