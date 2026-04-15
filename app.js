@@ -12,7 +12,7 @@ async function getRates() {
     const data = await res.json();
     bcvRate = data.rates.VES;
     usdRate = data.rates.USD;
-    usdToCopRate = data.rates.COP+100;
+    usdToCopRate = data.rates.COP;
     eurRate      = data.rates.EUR;
 
     document.getElementById("bcvRate").innerText =
@@ -36,15 +36,15 @@ function calculate() {
   
   if (currency === "USD") {
     usdValue = amount;
-    copValue = amount * usdToCopRate;
+    copValue = amount * usdToCopRate+100;
   } else if (currency === "COP") {
-    usdValue = amount / usdToCopRate;
+    usdValue = amount / usdToCopRate+100;
   } else if (currency === "EUR") {
     usdValue = amount / eurRate;
-    copValue = usdValue * usdToCopRate;
+    copValue = usdValue * usdToCopRate-100;
   }else if (currency === "VES") {
     usdValue = amount / tasaVenta;
-    copValue = usdValue * usdToCopRate;
+    copValue = usdValue * usdToCopRate-100;
   }
 
   // Calculos
