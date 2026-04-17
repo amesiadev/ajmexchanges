@@ -367,7 +367,7 @@ function generarOperacionesFrecuentes() {
   container.innerHTML = "";
   
   for (let cop = 10000; cop <= 100000; cop += 10000) {
-    const usd = cop / usdToCopRate;
+    const usd = cop / (usdToCopRate+100);
     const bs = usd * tasa;
     const cardWrapper = document.createElement("div");
 
