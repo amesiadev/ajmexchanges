@@ -67,14 +67,16 @@ function calculate() {
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${copValue.toFixed(2)} COP`;
-  } else {
+  } else if (currency === "BCV") {
+  document.getElementById("usdEquivalent").innerText = 
+      `Equivalente: ${copValue.toFixed(2)} COP`;
+  }else{
     document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
   }
+
   if (currency === "VES") {
-  document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;  
-  } else if (currency === "BCV") {
-  document.getElementById("finalResult").innerText =`Envías: ${copValue.toFixed(2)} COP`;  
+  document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;
   }else{
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
