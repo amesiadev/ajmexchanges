@@ -32,6 +32,7 @@ function calculate() {
 
   let usdValue;
   let copValue;
+  let vesValue;
   
   if (currency === "USD") {
     usdValue = amount;
@@ -42,8 +43,8 @@ function calculate() {
     usdValue = amount / eurRate;
     copValue = usdValue * (usdToCopRate-100);
   } else if (currency === "BCV") {
-    usdValue = amount / (bcvRate+1);
-    copValue = usdValue * (usdToCopRate+100);
+    vesValue = amount * (bcvRate+1);
+    copValue = amount * (usdToCopRate+100);
   }else if (currency === "VES") {
     usdValue = amount / tasaVenta;
     copValue = usdValue * (usdToCopRate-100);
@@ -71,6 +72,8 @@ function calculate() {
   }
   if (currency === "VES") {
   document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;  
+  } else if (currency === "BCV") {
+  document.getElementById("finalResult").innerText =`Envías: ${copValue.toFixed(2)} COP`;  
   }else{
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
