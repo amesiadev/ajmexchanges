@@ -80,7 +80,7 @@ function calculate() {
   if (currency === "VES") {
   document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;
   }else if (currency === "BCV") {
-    document.getElementById("finalResult").innerText =`Recibes: ${baseValue.toFixed(2)} Bs`;
+  document.getElementById("finalResult").innerText = `Recibes: ${baseValue.toFixed(2)} Bs`;
   }else{
   document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
   document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
