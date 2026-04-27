@@ -50,20 +50,17 @@ function calculate() {
     usdValue = amount / tasaVenta;
     copValue = usdValue * (usdToCopRate-100);
   }
-  // Calculos
+  // Calculos condicionados
   if (currency === "BCV") { 
   const baseValue = vesValue;
-  const faltaPorDolar = tasa - (bcvRate+1);
-  const bono = faltaPorDolar * usdValue;
-  const total = baseValue + bono;
-  const  bcvaprox = total / (bcvRate+1);
   }else{
   const baseValue = usdValue * (bcvRate+1);
+  }
+  // resto de calculos genericos
   const faltaPorDolar = tasa - (bcvRate+1);
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
   const  bcvaprox = total / (bcvRate+1);
-  }
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
