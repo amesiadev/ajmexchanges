@@ -14,7 +14,6 @@ async function getRates() {
     usdRate = data.rates.USD;
     usdToCopRate = data.rates.COP;
     eurRate      = data.rates.EUR;
-
     document.getElementById("bcvRate").innerText =
       `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP | 1 USD = ${eurRate.toFixed(2)} EUR`;
   } catch (e) {
