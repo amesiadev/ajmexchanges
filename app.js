@@ -44,6 +44,7 @@ function calculate() {
     copValue = usdValue * (usdToCopRate-100);
   } else if (currency === "BCV") {
     vesValue = amount * (bcvRate+1);
+    usdValue = amount;
     copValue = amount * (usdToCopRate+100);
   }else if (currency === "VES") {
     usdValue = amount / tasaVenta;
