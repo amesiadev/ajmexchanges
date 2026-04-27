@@ -2,8 +2,8 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
-let tasa = 575;
-let tasaVenta = 630;
+let tasa = 578;
+let tasaVenta = 647;
 
 // Obtener tasas
 async function getRates() {
@@ -42,17 +42,19 @@ function calculate() {
   } else if (currency === "EUR") {
     usdValue = amount / eurRate;
     copValue = usdValue * (usdToCopRate-100);
+  } else if (currency === "BCV") {
+    usdValue = amount / (bcvRate+1);
+    copValue = usdValue * (usdToCopRate+100);
   }else if (currency === "VES") {
     usdValue = amount / tasaVenta;
     copValue = usdValue * (usdToCopRate-100);
   }
-
   // Calculos
-  const baseValue = usdValue * bcvRate;
-  const faltaPorDolar = tasa - bcvRate;
+  const baseValue = usdValue * (bcvRate+1);
+  const faltaPorDolar = tasa - (bcvRate+1);
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
-  const  bcvaprox = total / bcvRate;
+  const  bcvaprox = total / (bcvRate+1);
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
