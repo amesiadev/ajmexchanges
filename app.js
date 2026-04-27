@@ -44,18 +44,26 @@ function calculate() {
     copValue = usdValue * (usdToCopRate-100);
   } else if (currency === "BCV") {
     vesValue = amount * (bcvRate+1);
-    usdValue = amount;
-    copValue = amount * (usdToCopRate+100);
+    usdValue = vesValue / (bcvRate+1);
+    copValue = usdValue * (usdToCopRate+100);
   }else if (currency === "VES") {
     usdValue = amount / tasaVenta;
     copValue = usdValue * (usdToCopRate-100);
   }
   // Calculos
+  if (currency === "BCV") { 
+  const baseValue = vesValue;
+  const faltaPorDolar = tasa - (bcvRate+1);
+  const bono = faltaPorDolar * usdValue;
+  const total = baseValue + bono;
+  const  bcvaprox = total / (bcvRate+1);
+  }else{
   const baseValue = usdValue * (bcvRate+1);
   const faltaPorDolar = tasa - (bcvRate+1);
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
   const  bcvaprox = total / (bcvRate+1);
+  }
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
@@ -66,9 +74,6 @@ function calculate() {
       `Equivalente: ${usdValue.toFixed(2)} USD`;
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
-      `Equivalente: ${copValue.toFixed(2)} COP`;
-  } else if (currency === "BCV") {
-  document.getElementById("usdEquivalent").innerText = 
       `Equivalente: ${copValue.toFixed(2)} COP`;
   }else{
     document.getElementById("usdEquivalent").innerText = 
