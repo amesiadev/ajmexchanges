@@ -2,7 +2,7 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
-let tasa = 578;
+let tasa = 585;
 let tasaVenta = 647;
 let rate_bcv_incr = 1.5;
 
