@@ -2,6 +2,7 @@ let bcvRate = null;
 let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
+let spreadRate = 100;
 let tasa = 580;
 let tasaVenta = 647;
 let rate_bcv_incr = 1.5;
@@ -37,19 +38,19 @@ function calculate() {
   
   if (currency === "USD") {
     usdValue = amount;
-    copValue = amount * usdToCopRate;
+    copValue = amount * (usdToCopRate-spreadRate);
   } else if (currency === "COP") {
-    usdValue = amount / usdToCopRate;
+    usdValue = amount / (usdToCopRate+spreadRate);
   } else if (currency === "EUR") {
     usdValue = amount / eurRate;
-    copValue = usdValue * usdToCopRate;
+    copValue = usdValue * (usdToCopRate-spreadRate);
   } else if (currency === "BCV") {
     vesValue = amount * (bcvRate+rate_bcv_incr);
     usdValue = vesValue / tasa;
-    copValue = usdValue * usdToCopRate;
+    copValue = usdValue * (usdToCopRate+spreadRate);
   } else if (currency === "VES") {
     usdValue = amount / tasaVenta;
-    copValue = usdValue * usdToCopRate;
+    copValue = usdValue * (usdToCopRate-spreadRate);
   }
   // Calculos condicionados
   const baseValue = usdValue * (bcvRate+rate_bcv_incr);
