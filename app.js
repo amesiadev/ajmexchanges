@@ -37,19 +37,19 @@ function calculate() {
   
   if (currency === "USD") {
     usdValue = amount;
-    copValue = amount * (usdToCopRate-50);
+    copValue = amount * usdToCopRate;
   } else if (currency === "COP") {
-    usdValue = amount / (usdToCopRate+50);
+    usdValue = amount / usdToCopRate;
   } else if (currency === "EUR") {
     usdValue = amount / eurRate;
-    copValue = usdValue * (usdToCopRate-50);
+    copValue = usdValue * usdToCopRate;
   } else if (currency === "BCV") {
     vesValue = amount * (bcvRate+rate_bcv_incr);
     usdValue = vesValue / tasa;
-    copValue = usdValue * (usdToCopRate+50);
+    copValue = usdValue * usdToCopRate;
   } else if (currency === "VES") {
     usdValue = amount / tasaVenta;
-    copValue = usdValue * (usdToCopRate-50);
+    copValue = usdValue * usdToCopRate;
   }
   // Calculos condicionados
   const baseValue = usdValue * (bcvRate+rate_bcv_incr);
