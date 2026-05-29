@@ -5,7 +5,7 @@ let usdRate  = null;
 let spreadRate = 100;
 let tasa = 660;
 let tasaVenta = 735;
-let rate_bcv_incr = 1.5;
+let rate_bcv_incr = 5;
 
 // Obtener tasas
 async function getRates() {
