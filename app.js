@@ -3,8 +3,8 @@ let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
 let spreadRate = 100;
-let tasa = 660;
-let tasaVenta = 735;
+let tasa = 675;
+let tasaVenta = 740;
 let rate_bcv_incr = 7;
 
 // Obtener tasas
