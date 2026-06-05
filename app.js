@@ -22,7 +22,7 @@ async function getRates() {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
-  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`;
+  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`; const hr=document.getElementById("heroRate"); if(hr) hr.innerText=`${tasa.toFixed(2)} Bs/USD`;
   /*Generamos las tarjetas*/
   generarOperacionesFrecuentes();
 }
@@ -79,10 +79,7 @@ function calculate() {
   }else if (currency === "BCV") {
   document.getElementById("finalResult").innerText = `Recibes: ${vesValue.toFixed(2)} Bs`;
   }else{
-  document.getElementById("baseValue").innerText = `Valor base: ${baseValue.toFixed(2)} Bs`;
-  document.getElementById("bonusInfo").innerText = `Bono: ${bono.toFixed(2)} Bs`;
-  document.getElementById("finalResult").innerText =`Recibes: ${total.toFixed(2)} Bs, 
-           Aprox : ${bcvaprox.toFixed(2)} $ BCV `;
+  document.getElementById("finalResult").innerText =`${total.toFixed(2)} Bs`; const btn=document.getElementById("btnOperacion"); if(btn){ const m=`Hola AJM Exchanges.%0AQuiero cambiar ${amount.toFixed(2)} ${currency}.%0ARecibiría ${total.toFixed(2)} Bs.`; btn.href=`https://wa.me/573024118216?text=${m}`;}
   }
 }
 
