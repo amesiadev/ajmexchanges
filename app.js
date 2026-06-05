@@ -17,7 +17,7 @@ function formatNumber(value) {
 function actualizarShareCard(amount,currency,total){
 
     document.getElementById("shareRate").innerText =
-      `${tasa.toFixed(0)} Bs/USD`;
+      `${formatNumber(tasa)} Bs/USD`;
 
     document.getElementById("shareSend").innerText =
       `${formatNumber(amount)} ${currency}`;
