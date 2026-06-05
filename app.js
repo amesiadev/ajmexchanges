@@ -67,13 +67,13 @@ function calculate() {
 
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
-      `Equivalente: ${usdValue.toFixed(2)} USD`;
+      `${usdValue.toFixed(2)} USD`;
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
-      `Equivalente: ${copValue.toFixed(2)} COP`;
+      `${copValue.toFixed(2)} COP`;
   }else{
     document.getElementById("usdEquivalent").innerText = 
-      `Equivalente: ${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
+      `${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
   }
 
   if (currency === "VES") {
