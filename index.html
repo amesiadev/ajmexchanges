@@ -99,15 +99,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </select>
   <button id="calculate" onclick="calculate()">Calcular</button>
     </div>
-    
     <div class="result-card" id="resultCard">
-      <img src="icons/logo.png" alt="Logo" class="logo">
-      <h2>Resultado</h2>
-      <p id="enteredAmount">Monto ingresado: 0</p>
-      <p id="usdEquivalent"></p>
-      
-      <span id="finalResult">0 Bs</span>
+
+  <img src="icons/logo.png" alt="Logo" class="logo">
+
+  <h2>Resultado</h2>
+
+  <div class="result-info">
+      <div class="info-block">
+          <span class="label">ENVÍAS</span>
+          <p id="enteredAmount">0</p>
+      </div>
+
+      <div class="info-block">
+          <span class="label">EQUIVALE A</span>
+          <p id="usdEquivalent">0 USD</p>
+      </div>
+  </div>
+
+  <div class="receive-box">
+      <span>RECIBES</span>
+      <div id="finalResult">0 Bs</div>
+  </div>
+
     </div>
+    
 <a id="btnOperacion" class="btn-operacion" target="_blank">🚀 Realizar operación ahora</a>
     <div class="share-buttons">
         <button class="btn-share facebook" onclick="compartirFacebook()">📘 Compartir en Facebook</button>
