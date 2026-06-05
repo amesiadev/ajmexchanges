@@ -960,3 +960,46 @@ h1::after {
 .hero-rate{background:linear-gradient(135deg,#0a3d91,#0d6efd);color:#fff;padding:20px;border-radius:16px;text-align:center;margin:15px 0}
 .hero-rate h1{color:#fff;font-size:2.4rem;margin:8px 0}
 .btn-operacion{display:block;text-align:center;background:#25d366;color:#fff;text-decoration:none;padding:14px;border-radius:12px;font-weight:700;margin:15px 0}
+.result-info{
+  margin-top:20px;
+}
+
+.info-block{
+  margin-bottom:15px;
+}
+
+.info-block .label{
+  display:block;
+  font-size:.8rem;
+  color:#777;
+  font-weight:700;
+  letter-spacing:1px;
+}
+
+.info-block p{
+  margin-top:5px;
+  font-size:1.1rem;
+  color:#222;
+}
+
+.receive-box{
+  margin-top:25px;
+  padding:20px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#0a3d91,#0d6efd);
+  color:#fff;
+}
+
+.receive-box span{
+  display:block;
+  font-size:.9rem;
+  letter-spacing:1px;
+  opacity:.9;
+}
+
+.receive-box #finalResult{
+  font-size:2.4rem;
+  font-weight:700;
+  margin-top:10px;
+  color:#fff;
+}
