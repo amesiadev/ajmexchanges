@@ -14,6 +14,17 @@ function formatNumber(value) {
   }).format(value);
 }
 
+function actualizarShareCard(amount,currency,total){
+
+    document.getElementById("shareRate").innerText =
+      `${tasa.toFixed(0)} Bs/USD`;
+
+    document.getElementById("shareSend").innerText =
+      `${formatNumber(amount)} ${currency}`;
+
+    document.getElementById("shareReceive").innerText =
+      `${formatNumber(total)} Bs`;
+}
 // Obtener tasas
 async function getRates() {
   try {
@@ -66,6 +77,7 @@ function calculate() {
   const faltaPorDolar = tasa - (bcvRate+rate_bcv_incr);
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
+  actualizarShareCard(amount,currency,total);
   const  bcvaprox = total / (bcvRate+rate_bcv_incr);
 
   // Mostrar desglose
@@ -107,7 +119,8 @@ async function ensureHtml2Canvas() {
 async function generarImagenBlob() {
   if (!resultsContainer) throw new Error("Contenedor de resultados no encontrado.");
   await ensureHtml2Canvas();
-  const canvas = await html2canvas(resultsContainer, { backgroundColor: "#ffffff", scale: 2 });
+  const shareCard = document.getElementById("shareCard");
+  const canvas = await html2canvas(shareCard,{ backgroundColor: "#ffffff", scale: 2 });
   return await new Promise(resolve => canvas.toBlob(resolve, "image/png"));
 }
 
