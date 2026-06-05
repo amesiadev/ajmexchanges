@@ -7,6 +7,13 @@ let tasa = 680;
 let tasaVenta = 745;
 let rate_bcv_incr = 7;
 
+function formatNumber(value) {
+  return new Intl.NumberFormat('es-VE', {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2
+  }).format(value);
+}
+
 // Obtener tasas
 async function getRates() {
   try {
@@ -17,14 +24,14 @@ async function getRates() {
     usdToCopRate = data.rates.COP;
     eurRate      = data.rates.EUR;
     document.getElementById("bcvRate").innerText =
-      `BCV: ${bcvRate.toFixed(2)} Bs | 1 USD = ${usdToCopRate.toFixed(2)} COP | 1 USD = ${eurRate.toFixed(2)} EUR`;
+      `BCV: ${formatNumber(bcvRate)} Bs | 1 USD = ${formatNumber(usdToCopRate)} COP | 1 USD = ${formatNumber(eurRate)} EUR`;
   } catch (e) {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
-  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`; 
+  document.getElementById("tasa").innerText=`${formatNumber(tasa)} Bs`; 
   const hr=document.getElementById("heroRate");
-  if(hr) hr.innerText=`${tasa.toFixed(2)} Bs/USD`;
+  if(hr) hr.innerText=`${formatNumber(tasa)} Bs/USD`;
   /*Generamos las tarjetas*/
   generarOperacionesFrecuentes();
 }
@@ -63,26 +70,26 @@ function calculate() {
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
-    `Monto ingresado: ${amount.toFixed(2)} ${currency}`;
+    `Monto ingresado: ${formatNumber(amount)} ${currency}`;
 
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
-      `${usdValue.toFixed(2)} USD`;
+      `${formatNumber(usdValue)} USD`;
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
-      `${copValue.toFixed(2)} COP`;
+      `${formatNumber(copValue)} COP`;
   }else{
     document.getElementById("usdEquivalent").innerText = 
-      `${usdValue.toFixed(2)} USD | ${copValue.toFixed(2)} COP`;
+      `${formatNumber(usdValue)} USD | ${formatNumber(copValue)} COP`;
   }
 
   if (currency === "VES") {
-  document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;
+  document.getElementById("finalResult").innerText =`Recibes: ${formatNumber(copValue)} COP`;
   }else if (currency === "BCV") {
-  document.getElementById("finalResult").innerText = `Recibes: ${vesValue.toFixed(2)} Bs`;
+  document.getElementById("finalResult").innerText = `Recibes: ${formatNumber(vesValue)} Bs`;
 }else{
   document.getElementById("finalResult").innerText =
-    `${total.toFixed(2)} Bs`;
+    `${formatNumber(total)} Bs`;
   }
 }
 
