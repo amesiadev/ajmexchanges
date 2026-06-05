@@ -3,8 +3,8 @@ let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
 let spreadRate = 100;
-let tasa = 675;
-let tasaVenta = 740;
+let tasa = 670;
+let tasaVenta = 745;
 let rate_bcv_incr = 7;
 
 // Obtener tasas
@@ -22,7 +22,9 @@ async function getRates() {
     console.error("Error obteniendo tasas:", e);
     document.getElementById("bcvRate").innerText = "No se pudo cargar tasas";
   }
-  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`; const hr=document.getElementById("heroRate"); if(hr) hr.innerText=`${tasa.toFixed(2)} Bs/USD`;
+  document.getElementById("tasa").innerText=`${tasa.toFixed(2)} Bs`; 
+  const hr=document.getElementById("heroRate");
+  if(hr) hr.innerText=`${tasa.toFixed(2)} Bs/USD`;
   /*Generamos las tarjetas*/
   generarOperacionesFrecuentes();
 }
