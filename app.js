@@ -78,9 +78,9 @@ function calculate() {
   document.getElementById("finalResult").innerText =`Recibes: ${copValue.toFixed(2)} COP`;
   }else if (currency === "BCV") {
   document.getElementById("finalResult").innerText = `Recibes: ${vesValue.toFixed(2)} Bs`;
-  }else{
-  document.getElementById("finalResult").innerText = `TEST ${total}`;
-  const btn=document.getElementById("btnOperacion"); if(btn){ const m=`Hola AJM Exchanges.%0AQuiero cambiar ${amount.toFixed(2)} ${currency}.%0ARecibiría ${total.toFixed(2)} Bs.`; btn.href=`https://wa.me/573024118216?text=${m}`;}
+}else{
+  document.getElementById("finalResult").innerText =
+    `${total.toFixed(2)} Bs`;
   }
 }
 
