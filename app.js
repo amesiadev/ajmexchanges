@@ -78,7 +78,7 @@ function calculate() {
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
   actualizarShareCard(amount,currency,total);
-  const  bcvaprox = total / (bcvRate+rate_bcv_incr);
+  const  bcvAprox = total / (bcvRate+rate_bcv_incr);
 
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
@@ -86,7 +86,7 @@ function calculate() {
 
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
-      `${formatNumber(usdValue)} USD`;
+      `${formatNumber(usdValue)} USD  | ${formatNumber(bcvAprox)} BCV`;
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
       `${formatNumber(copValue)} COP`;
