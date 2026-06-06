@@ -86,10 +86,10 @@ function calculate() {
 
   if (currency === "COP") {
     document.getElementById("usdEquivalent").innerText =
-      `${formatNumber(usdValue)} USD  | ${formatNumber(bcvAprox)} BCV`;
+      `${formatNumber(usdValue)} USD | ${formatNumber(bcvAprox)} BCV`;
   } else if (currency === "USD") {
     document.getElementById("usdEquivalent").innerText = 
-      `${formatNumber(copValue)} COP`;
+      `${formatNumber(copValue)} COP | ${formatNumber(bcvAprox)} BCV`;
   }else{
     document.getElementById("usdEquivalent").innerText = 
       `${formatNumber(usdValue)} USD | ${formatNumber(copValue)} COP`;
