@@ -92,7 +92,7 @@ function calculate() {
       `${formatNumber(copValue)} COP | ${formatNumber(bcvAprox)} BCV`;
   }else{
     document.getElementById("usdEquivalent").innerText = 
-      `${formatNumber(usdValue)} USD | ${formatNumber(copValue)} COP`;
+      `${formatNumber(usdValue)} USD | ${formatNumber(copValue)} COP | ${formatNumber(bcvAprox)} BCV`;
   }
 
   if (currency === "VES") {
