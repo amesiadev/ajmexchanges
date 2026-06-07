@@ -4,7 +4,7 @@ let usdToCopRate = null;
 let usdRate  = null;
 let spreadRate = 100;
 let tasa = 690;
-let tasaVenta = 763;
+let tasaVenta = 769;
 let rate_bcv_incr = 7;
 
 function formatNumber(value) {
