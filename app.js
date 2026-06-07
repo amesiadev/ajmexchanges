@@ -14,7 +14,7 @@ function formatNumber(value) {
   }).format(value);
 }
 
-function actualizarShareCard(amount,currency,total){
+function actualizarShareCard(amount,currency,total,bcvreceive){
 
     document.getElementById("shareRate").innerText =
       `${formatNumber(tasa)} Bs/USD`;
@@ -23,7 +23,7 @@ function actualizarShareCard(amount,currency,total){
       `${formatNumber(amount)} ${currency}`;
 
     document.getElementById("shareReceive").innerText =
-      `${formatNumber(total)} Bs`;
+      `${formatNumber(total)} Bs | ${formatNumber(bcvreceive)} BCV`;
 }
 // Obtener tasas
 async function getRates() {
@@ -77,9 +77,8 @@ function calculate() {
   const faltaPorDolar = tasa - (bcvRate+rate_bcv_incr);
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
-  actualizarShareCard(amount,currency,total);
   const  bcvAprox = total / (bcvRate+rate_bcv_incr);
-
+  actualizarShareCard(amount,currency,total,bcvAprox);
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
     `Monto ingresado: ${formatNumber(amount)} ${currency}`;
