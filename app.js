@@ -14,16 +14,22 @@ function formatNumber(value) {
   }).format(value);
 }
 
-function actualizarShareCard(amount,currency,total,bcvreceive){
-
+function actualizarShareCard(amount,currency,total,bcvreceive,copvalue){
+ 
     document.getElementById("shareRate").innerText =
       `${formatNumber(tasa)} Bs/USD`;
 
     document.getElementById("shareSend").innerText =
       `${formatNumber(amount)} ${currency}`;
-
+  
+    // Cuando es Bolivares, se debe mostrar cuanto recibe en Pesos Colombianos
+    if (currency === "VES"){
     document.getElementById("shareReceive").innerText =
+      `${formatNumber(copvalue)} COP | ${formatNumber(bcvreceive)} BCV`;
+    }else{
+      document.getElementById("shareReceive").innerText =
       `${formatNumber(total)} Bs | ${formatNumber(bcvreceive)} BCV`;
+    }
 }
 // Obtener tasas
 async function getRates() {
@@ -78,7 +84,7 @@ function calculate() {
   const bono = faltaPorDolar * usdValue;
   const total = baseValue + bono;
   const  bcvAprox = total / (bcvRate+rate_bcv_incr);
-  actualizarShareCard(amount,currency,total,bcvAprox);
+  actualizarShareCard(amount,currency,total,bcvAprox,copValue);
   // Mostrar desglose
   document.getElementById("enteredAmount").innerText =
     `Monto ingresado: ${formatNumber(amount)} ${currency}`;
