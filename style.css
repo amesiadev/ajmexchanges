@@ -1037,7 +1037,7 @@ h1::after {
 }
 
 .share-rate{
-    font-size:80px;
+    font-size:70px;
     font-weight:800;
     color:#0a3d91;
     margin-top:20px;
@@ -1056,13 +1056,13 @@ h1::after {
 }
 
 .share-value{
-    font-size:54px;
+    font-size:50px;
     color:#222;
     margin-top:15px;
 }
 
 .share-result{
-    font-size:80px;
+    font-size:70px;
     color:#0d6efd;
     font-weight:800;
     margin-top:15px;
