@@ -3,8 +3,8 @@ let eurRate = null;
 let usdToCopRate = null;
 let usdRate  = null;
 let spreadRate = 100;
-let tasa = 700;
-let tasaVenta = 800;
+let tasa = 710;
+let tasaVenta = 810;
 let rate_bcv_incr = 7;
 
 function formatNumber(value) {
